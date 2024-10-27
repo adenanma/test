@@ -197,7 +197,11 @@
         </div>
       </div>
 
-      <div id="filter-container" class="row filter-container">
+      <div class="text-center mb-4">
+        <button id="toggleButton" class="btn btn-primary">Tampilkan Undangan</button>
+      </div>
+
+      <div id="filter-container" class="row filter-container" style="display: none;">
         <!-- Konten filter akan diisi secara dinamis menggunakan JavaScript -->
       </div>
     </div>
@@ -256,6 +260,18 @@
 
       const filterButtons = document.querySelectorAll('.filter-btn');
       const filterItems = document.querySelectorAll('.filter-item');
+      const toggleButton = document.getElementById('toggleButton');
+      const filterContainer = document.getElementById('filter-container');
+
+      toggleButton.addEventListener('click', function() {
+        if (filterContainer.style.display === 'none') {
+          filterContainer.style.display = 'flex';
+          toggleButton.textContent = 'Sembunyikan Undangan';
+        } else {
+          filterContainer.style.display = 'none';
+          toggleButton.textContent = 'Tampilkan Undangan';
+        }
+      });
 
       filterButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -267,8 +283,17 @@
           filterItems.forEach(item => {
             if (filter === 'all' || item.classList.contains(filter)) {
               item.style.display = 'block';
+              item.style.opacity = '0';
+              setTimeout(() => {
+                item.style.transition = 'opacity 0.5s ease';
+                item.style.opacity = '1';
+              }, 50);
             } else {
-              item.style.display = 'none';
+              item.style.transition = 'opacity 0.5s ease';
+              item.style.opacity = '0';
+              setTimeout(() => {
+                item.style.display = 'none';
+              }, 500);
             }
           });
         });
@@ -281,6 +306,7 @@
       document.head.appendChild(fontAwesomeLink);
     });
   </script>
+  <!-- batas contoh filter undangan -->
 
 
   <!-- contoh services -->

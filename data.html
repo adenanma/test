@@ -1,0 +1,281 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="#">Formulir Data</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Beranda</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="data.html">Formulir Data</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Formulir Data Undangan</h2>
+
+  <form id="undanganForm">
+    <div class="mb-3">
+        <label for="jenis-undangan" class="form-label"><i class="fas fa-envelope"></i> Jenis Undangan</label>
+        <select class="form-select" id="jenis-undangan" required>
+          <option value="" selected disabled>Pilih jenis undangan</option>
+          <option value="pernikahan">Undangan Pernikahan</option>
+          <option value="aqiqah">Undangan Aqiqah</option>
+          <option value="syukuran">Undangan Syukuran</option>
+          <option value="ulang-tahun">Undangan Ulang Tahun</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="tema-undangan" class="form-label"><i class="fas fa-palette"></i> Tema Undangan</label>
+        <input type="text" class="form-control" id="tema-undangan" readonly>
+      </div>
+    <h3 class="mb-3 text-primary"><i class="fas fa-male"></i> Data Mempelai Pria</h3>
+    <div class="mb-3">
+      <label for="nama-lengkap-pria" class="form-label">Nama Lengkap Pria</label>
+      <input type="text" class="form-control" id="nama-lengkap-pria" placeholder="Masukkan nama lengkap pria" required>
+      <label for="nama-panggilan-pria" class="form-label">Nama Panggilan Pria</label>
+      <input type="text" class="form-control" id="nama-panggilan-pria" placeholder="Masukkan nama panggilan pria" required>
+      <label for="nama-bapak-pria" class="form-label">Nama Bapak</label>
+      <input type="text" class="form-control" id="nama-bapak-pria" placeholder="Masukkan nama bapak" required>
+      <label for="nama-ibu-pria" class="form-label">Nama Ibu </label>
+      <input type="text" class="form-control" id="nama-ibu-pria" placeholder="Masukkan nama ibu" required>
+      <label for="anak-ke-pria" class="form-label">Anak keberapa dalam keluarga</label>
+      <input type="text" class="form-control" id="anak-ke-pria" placeholder="Contoh: Anak ke-2 dari 4 bersaudara" required>
+    </div>
+
+    <h3 class="mb-3 text-primary"><i class="fas fa-female"></i> Data Mempelai Wanita</h3>
+    <div class="mb-3">
+      <label for="nama-lengkap-wanita" class="form-label">Nama Lengkap Wanita</label>
+      <input type="text" class="form-control" id="nama-lengkap-wanita" placeholder="Masukkan nama lengkap wanita" required>
+      <label for="nama-panggilan-wanita" class="form-label">Nama Panggilan Wanita</label>
+      <input type="text" class="form-control" id="nama-panggilan-wanita" placeholder="Masukkan nama panggilan wanita" required>
+      <label for="nama-bapak-wanita" class="form-label">Nama Bapak</label>
+      <input type="text" class="form-control" id="nama-bapak-wanita" placeholder="Masukkan nama bapak" required>
+      <label for="nama-ibu-wanita" class="form-label">Nama Ibu </label>
+      <input type="text" class="form-control" id="nama-ibu-wanita" placeholder="Masukkan nama ibu" required>
+      <label for="anak-ke-wanita" class="form-label">Anak keberapa dalam keluarga</label>
+      <input type="text" class="form-control" id="anak-ke-wanita" placeholder="Contoh: Anak ke-2 dari 4 bersaudara" required>
+    </div>
+    <div class="mb-3">
+        <h3 class="mb-3 text-primary"><i class="fas fa-calendar-alt"></i> Data Akad Pernikahan</h3>
+        <label for="tanggal-akad" class="form-label">Hari dan Tanggal Akad</label>
+        <input type="text" class="form-control" id="tanggal-akad" placeholder="Contoh: Sabtu, 15 Mei 2024" required>
+        <label for="jam-akad" class="form-label">Jam Akad</label>
+        <input type="text" class="form-control" id="jam-akad" placeholder="Contoh: 10:00 WIB" required>
+        <label for="tempat-akad" class="form-label">Tempat Akad</label>
+        <input type="text" class="form-control" id="tempat-akad" placeholder="Contoh: Masjid Al-Hidayah" required>
+        <label for="alamat-akad" class="form-label">Alamat Lengkap Akad</label>
+        <input type="text" class="form-control" id="alamat-akad" placeholder="Masukkan alamat lengkap tempat akad" required>
+        <label for="link-maps-akad" class="form-label">Link Google Maps Lokasi Akad</label>
+        <input type="url" class="form-control" id="link-maps-akad" placeholder="Masukkan link Google Maps lokasi akad" required>
+    </div>
+    <div class="mb-3">
+        <h3 class="mb-3 text-primary"><i class="fas fa-glass-cheers"></i> Data Resepsi Pernikahan</h3>
+        <label for="tanggal-resepsi" class="form-label">Hari dan Tanggal Resepsi</label>
+        <input type="text" class="form-control" id="tanggal-resepsi" placeholder="Contoh: Minggu, 16 Mei 2024" required>
+        <label for="jam-resepsi" class="form-label">Jam Resepsi</label>
+        <input type="text" class="form-control" id="jam-resepsi" placeholder="Contoh: 11:00 - 14:00 WIB" required>
+        <label for="tempat-resepsi" class="form-label">Tempat Resepsi</label>
+        <input type="text" class="form-control" id="tempat-resepsi" placeholder="Contoh: Gedung Serbaguna Anggrek" required>
+        <label for="alamat-resepsi" class="form-label">Alamat Lengkap Resepsi</label>
+        <input type="text" class="form-control" id="alamat-resepsi" placeholder="Masukkan alamat lengkap tempat resepsi" required>
+        <label for="link-maps-resepsi" class="form-label">Link Google Maps Lokasi Resepsi</label>
+        <input type="url" class="form-control" id="link-maps-resepsi" placeholder="Masukkan link Google Maps lokasi resepsi" required>
+    </div>
+    <div class="mb-3">
+      <h3 class="mb-3 text-primary"><i class="fas fa-info-circle"></i> Data Pelengkap Lainnya</h3>
+      <label for="nomor-whatsapp-pria" class="form-label">Nomor WhatsApp Pria</label>
+      <input type="tel" class="form-control" id="nomor-whatsapp-pria" placeholder="Masukkan nomor WhatsApp pria" required>
+      <label for="nomor-whatsapp-wanita" class="form-label">Nomor WhatsApp Wanita</label>
+      <input type="tel" class="form-control" id="nomor-whatsapp-wanita" placeholder="Masukkan nomor WhatsApp wanita" required>
+      <label for="nomor-rekening" class="form-label">Nomor Rekening (Opsional)</label>
+      <input type="text" class="form-control" id="nomor-rekening" placeholder="Masukkan nomor rekening untuk amplop digital">
+      <label for="nama-bank" class="form-label">Nama Bank (Opsional)</label>
+      <input type="text" class="form-control" id="nama-bank" placeholder="Masukkan nama bank">
+      <label for="atas-nama" class="form-label">Atas Nama (Opsional)</label>
+      <input type="text" class="form-control" id="atas-nama" placeholder="Masukkan nama pemilik rekening">
+      <label for="musik-latar" class="form-label">Musik Latar (Opsional)</label>
+      <input type="text" class="form-control" id="musik-latar" placeholder="Masukkan judul lagu untuk musik latar">
+    </div>
+    <div class="mb-3">
+        <label for="link-google-drive" class="form-label">Link Google Drive Untuk Foto dan Video</label>
+        <input type="url" class="form-control" id="link-google-drive" placeholder="Masukkan link Google Drive, Buat Dalam Zip/Rar" required>
+      </div>
+    
+    <button type="submit" class="btn btn-primary">Kirim ke WhatsApp</button>
+  </form>
+</div>
+
+<style>
+  .container {
+    max-width: 600px;
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  h2 {
+    color: #0389ff;
+    font-weight: bold;
+  }
+  
+  .form-label {
+    font-weight: 600;
+  }
+  
+  .form-control, .form-select {
+    border: 2px solid #ced4da;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-control:focus, .form-select:focus {
+    border-color: #0389ff;
+    box-shadow: none;
+  }
+  
+  .btn-primary {
+    background-color: #0389ff;
+    border: none;
+    padding: 10px 30px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0266c3;
+  }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('undanganForm');
+  const jenisUndanganSelect = document.getElementById('jenis-undangan');
+  const temaUndanganInput = document.getElementById('tema-undangan');
+  
+  // Mendapatkan jenis undangan dan tema dari URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const jenisUndangan = urlParams.get('jenis');
+  const temaUndangan = urlParams.get('tema');
+  
+  // Mengatur nilai jenis undangan dan tema jika ada
+  if (jenisUndangan) {
+    jenisUndanganSelect.value = jenisUndangan;
+    jenisUndanganSelect.disabled = true;
+  }
+  
+  if (temaUndangan) {
+    temaUndanganInput.value = temaUndangan;
+    temaUndanganInput.disabled = true;
+  }
+  
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Validasi form
+    const inputs = form.querySelectorAll('input, select');
+    let isValid = true;
+    let whatsappMessage = 'Halo, saya ingin memesan undangan dengan detail berikut:%0A%0A';
+
+    inputs.forEach(input => {
+      if (input.required && !input.value) {
+        isValid = false;
+        input.classList.add('is-invalid');
+      } else {
+        input.classList.remove('is-invalid');
+        if (input.id !== 'tema-undangan') {
+          whatsappMessage += `${input.previousElementSibling.textContent}: ${input.value}%0A`;
+        }
+      }
+    });
+
+    if (!isValid) {
+      alert('Mohon lengkapi semua field yang wajib diisi.');
+      return;
+    }
+    
+    // Menambahkan tema undangan ke pesan
+    whatsappMessage += `Tema Undangan: ${temaUndanganInput.value}%0A`;
+
+    // Nomor WhatsApp tujuan (ganti dengan nomor yang sesuai)
+    const whatsappNumber = '6285172121407';
+
+    // Membuat URL untuk membuka WhatsApp
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
+    // Membuka WhatsApp di tab baru
+    window.open(whatsappUrl, '_blank');
+    
+    // Reset form setelah mengirim
+    form.reset();
+    
+    // Mengaktifkan kembali pilihan jenis undangan dan tema setelah form direset
+    jenisUndanganSelect.disabled = false;
+    temaUndanganInput.disabled = false;
+  });
+  
+  // Animasi sederhana untuk input fields
+  const inputs = document.querySelectorAll('.form-control, .form-select');
+  inputs.forEach(input => {
+    input.addEventListener('focus', function() {
+      this.style.transform = 'scale(1.02)';
+    });
+    input.addEventListener('blur', function() {
+      this.style.transform = 'scale(1)';
+    });
+  });
+});
+</script>
+
+<script>
+// Fungsi untuk menambahkan efek scroll ke atas halaman
+function scrollKeAtas() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+
+// Menambahkan tombol scroll ke atas
+const tombolScrollAtas = document.createElement('button');
+tombolScrollAtas.innerHTML = '&#8593;'; // Simbol panah ke atas
+tombolScrollAtas.setAttribute('id', 'tombolScrollAtas');
+tombolScrollAtas.style.cssText = `
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: none;
+  font-size: 18px;
+`;
+
+document.body.appendChild(tombolScrollAtas);
+
+// Menampilkan atau menyembunyikan tombol berdasarkan posisi scroll
+window.addEventListener('scroll', function() {
+  if (window.pageYOffset > 300) {
+    tombolScrollAtas.style.display = 'block';
+  } else {
+    tombolScrollAtas.style.display = 'none';
+  }
+});
+
+// Menambahkan event listener untuk tombol
+tombolScrollAtas.addEventListener('click', scrollKeAtas);
+</script>

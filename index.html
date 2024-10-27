@@ -241,7 +241,7 @@
               </div>
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title">${item.judul}</h5>
-                <a href="data.html?jenis=${item.kategori}&tema=${item.judul}" class="btn btn-primary mt-auto" target="_blank" rel="noopener noreferrer">Pesan Sekarang</a>
+                <a href="data.html?jenis=${item.kategori}&tema=${item.judul}" class="btn btn-primary mt-auto" rel="noopener noreferrer">Pesan Sekarang</a>
               </div>
             </div>
           </div>
@@ -367,75 +367,6 @@
 
     <!-- batas loader -->
 
-    <!-- tombol scroll ke atas -->
-
-    <script>
-      function scrollKeAtas() {
-        const scrollDuration = 1000;
-        const scrollStep = -window.scrollY / (scrollDuration / 15);
-        
-        const scrollInterval = setInterval(function() {
-          if (window.scrollY !== 0) {
-            window.scrollBy(0, scrollStep);
-          } else {
-            clearInterval(scrollInterval);
-          }
-        }, 15);
-      }
-
-      const tombolScrollAtas = document.createElement('button');
-      tombolScrollAtas.innerHTML = '<i class="icon-arrow-up"></i>';
-      tombolScrollAtas.setAttribute('title', 'Kembali ke Atas');
-      tombolScrollAtas.classList.add('scroll-top-btn');
-      
-      const style = document.createElement('style');
-      style.textContent = `
-        .scroll-top-btn {
-          position: fixed;
-          bottom: 20px;
-          right: 20px;
-          width: 40px;
-          height: 40px;
-          background-color: #0389ff;
-          color: white;
-          border: none;
-          border-radius: 50%;
-          cursor: pointer;
-          font-size: 18px;
-          display: none;
-          z-index: 1000;
-          transition: all 0.3s ease;
-          box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        .scroll-top-btn:hover {
-          background-color: #0266c3;
-          transform: translateY(-2px);
-        }
-        .scroll-top-btn.show {
-          display: block;
-          animation: fadeIn 0.3s ease;
-        }
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-      `;
-      document.head.appendChild(style);
-
-      document.body.appendChild(tombolScrollAtas);
-
-      window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 200) {
-          tombolScrollAtas.classList.add('show');
-        } else {
-          tombolScrollAtas.classList.remove('show');
-        }
-      });
-
-      tombolScrollAtas.addEventListener('click', scrollKeAtas);
-    </script>
-
-    <!-- batas tombol scroll ke atas -->
 
     <!-- Navbar bawah untuk HP -->
     <nav class="navbar fixed-bottom navbar-light d-lg-none">

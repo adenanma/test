@@ -322,15 +322,15 @@
 
 <!--NAVBAR-->
 <div class="bottom-bar">
-  <ion-icon name="home-outline" class="icon active" onclick="change(this); scrollToSection('.section1', 1000)">
+  <ion-icon name="home-outline" class="icon active" onclick="change(this); document.querySelector('.section1').scrollIntoView({behavior: 'smooth'})">
   </ion-icon>
-  <ion-icon name="folder-outline" class="icon" onclick="change(this); scrollToSection('.section2', 1000)">
+  <ion-icon name="folder-outline" class="icon" onclick="change(this); document.querySelector('.section2').scrollIntoView({behavior: 'smooth'})">
   </ion-icon>
-  <ion-icon name="add-circle-outline" class="icon" onclick="change(this); scrollToSection('.section3', 1000)">
+  <ion-icon name="add-circle-outline" class="icon" onclick="change(this); document.querySelector('.section3').scrollIntoView({behavior: 'smooth'})">
   </ion-icon>
-  <ion-icon name="person-outline" class="icon" onclick="change(this); scrollToSection('.section4', 1000)">
+  <ion-icon name="person-outline" class="icon" onclick="change(this); document.querySelector('.section4').scrollIntoView({behavior: 'smooth'})">
   </ion-icon>
-  <ion-icon name="image-outline" class="icon" onclick="change(this); scrollToSection('.section5', 1000)">
+  <ion-icon name="image-outline" class="icon" onclick="change(this); document.querySelector('.section5').scrollIntoView({behavior: 'smooth'})">
   </ion-icon>
 </div>
 <script>

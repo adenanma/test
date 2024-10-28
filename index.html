@@ -1,530 +1,393 @@
-<!-- /*
-* Template Name: Minimal
-* Template Author: Untree.co
-* Author URI: https://untree.co/
-* License: https://creativecommons.org/licenses/by/3.0/
-*/ -->
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>kataSemata. Invitation Card Digital</title>
+  <meta name="description" content="Undangan digital yang elegan dan modern untuk pernikahan, ulang tahun, khitanan, aqiqah, wisuda, syukuran, dan halal bihalal. Desain undangan yang inovatif dan responsif untuk semua perangkat.">
+  <meta name="author" content="kataSemata">
+  <link rel="icon" href="images/logo.png" style="width: 20px; height: 20px;" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=PT+Mono&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" href="css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="css/jquery.fancybox.min.css">
-  <link rel="stylesheet" href="fonts/icomoon/style.css">
-  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-  <link rel="stylesheet" href="css/aos.css">
-  <link rel="stylesheet" href="css/style.css">
-
-  <title>KataSemata. - Invitation Card</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
-
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="100">
-
-  <div class="lines-wrap">
-    <div class="lines-inner">
-      <div class="lines"></div>
-    </div>
-  </div>
-  <!-- END lines -->
+<body>
   
-  <!-- navbar desktop -->
-  <nav class="site-nav dark mb-5 site-navbar-target d-none d-lg-block">
-    <div class="container">
-      <div class="site-navigation">
-        <a href="index.html" class="logo m-0">KataSemata<span class="text-primary">.</span></a>
+<div class="container">
 
-        <ul class="site-menu float-right site-nav-wrap">
-          <li><a href="#home-section" class="nav-link active">Home</a></li>
-          <li><a href="#testimonial-section" class="nav-link">Contoh Undangan</a></li>
-          <li><a href="#filter-section" class="nav-link">Filter Undangan</a></li>
-          <li><a href="#services-section" class="nav-link">Layanan</a></li>
-        </ul>
-
+  <section class="section1">
+    <div class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">kataSemata<span style="color: #009dff;">.</span></h1>
+        <p class="hero-subtitle">Invitation Card Digital</p>
       </div>
     </div>
-  </nav>
-  <!-- batas navbar desktop -->
-
-  <!-- home section -->
-  <div class="untree_co-section pb-0" id="home-section" style="min-height: 100vh; display: flex; align-items: center; justify-content: center;">
-    <div class="container">
-      <div class="row justify-content-center text-center">
-        <div class="col-md-7">
-          <h1 class="heading gsap-reveal-hero mb-3"><strong>KataSemata<span class="text-primary">.</span> <br><span class="text-primary">invitation card</span></strong></h1>
-          <h2 class="subheading gsap-reveal-hero mb-4">
-            KataSemata adalah sebuah perusahaan yang bergerak di bidang jasa pembuatan digital invitation card.
-          </h2>
-          <p class="gsap-reveal-hero"><a href="#testimonial-section" class="btn btn-primary btn-lg smooth-scroll">CONTOH UNDANGAN</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- batas home section -->
-
-  <!-- contoh undangan -->
-  <div id="testimonial-section" class="untree_co-section testimonial-wrap">
-    <div class="container">
-      <div class="row mb-4">
-        <div class="col-lg-6 text-center mx-auto">
-          <h2 class="heading gsap-reveal-hero mb-3"><strong>Contoh Undangan</strong></h2>
-          <p class="subheading gsap-reveal-hero">Pilihan Desain Undangan Digital Terbaik</p>
-          <div class="wave gsap-reveal-hero">
-            <svg>
-              <path d="M10,10 L50,100 L90,50" stroke="#0389ff"></path>
-            </svg>
-          </div>
-        </div>
-      </div>
-      
-      <div data-aos="fade-left" data-aos-delay="200">
-        <div id="owl-carousel-container"></div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    const sliderData = [
-      {
-        "imageSrc": "images/img_1.jpg",
-        "altText": "Undangan Pernikahan",
-        "borderColor": "#FF6B6B",
-        "label": "Undangan Pernikahan"
-      },
-      {
-        "imageSrc": "images/img_2.jpg",
-        "altText": "Undangan Aqiqah",
-        "borderColor": "#4ECDC4",
-        "label": "Undangan Aqiqah"
-      },
-      {
-        "imageSrc": "images/img_3.jpg",
-        "altText": "Undangan Syukuran",
-        "borderColor": "#45B7D1",
-        "label": "Undangan Syukuran"
-      },
-      {
-        "imageSrc": "images/img_4.jpg",
-        "altText": "Undangan Ulang Tahun",
-        "borderColor": "#FFA07A",
-        "label": "Undangan Ulang Tahun"
-      }
-    ];
-
-    const carouselContainer = document.getElementById('owl-carousel-container');
-    const carouselHTML = `
-      <div class="owl-carousel owl-3-slider">
-        ${sliderData.map(item => `
-          <div class="item">
-            <div class="slider-image-container" style="height: 80vh; overflow: hidden; border: 3px solid ${item.borderColor}; border-radius: 8px; position: relative;">
-              <div class="label-3d" style="position: absolute; top: 15px; left: 15px; background-color: rgba(255,255,255,0.9); color: ${item.borderColor}; padding: 8px 15px; border-radius: 25px; z-index: 10; font-size: 16px; font-weight: bold; transform: perspective(500px) rotateX(10deg) rotateY(-10deg); box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.3s ease;">
-                ${item.label}
-              </div>
-              <img src="${item.imageSrc}" alt="${item.altText}" class="img-fluid" style="object-fit: cover; width: 100%; height: 100%;">
-            </div>
-          </div>
-        `).join('')}
-      </div>
-    `;
-    carouselContainer.innerHTML = carouselHTML;
-
-    // Tambahkan fungsi untuk scroll ke label yang sesuai
-    function scrollToLabel(label) {
-      const items = document.querySelectorAll('.owl-carousel .item');
-      items.forEach((item, index) => {
-        if (item.querySelector('.label-3d').textContent.trim() === label) {
-          $('.owl-carousel').trigger('to.owl.carousel', [index, 300]);
-        }
-      });
+    <style>
+    .section1 {
+      background-color: #dcdcdc;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
     }
 
-    // Tambahkan event listener untuk tombol scroll
-    document.querySelectorAll('.scroll-button').forEach(button => {
-      button.addEventListener('click', (e) => {
-        e.preventDefault();
-        const label = e.target.getAttribute('data-label');
-        scrollToLabel(label);
-      });
-    });
+    .section1::before {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+      animation: rotate 20s linear infinite;
+    }
 
-    // Tambahkan efek hover pada label
-    document.querySelectorAll('.label-3d').forEach(label => {
-      label.addEventListener('mouseover', () => {
-        label.style.transform = 'perspective(500px) rotateX(0deg) rotateY(0deg) scale(1.1)';
-        label.style.boxShadow = '0 6px 10px rgba(0,0,0,0.2)';
-      });
-      label.addEventListener('mouseout', () => {
-        label.style.transform = 'perspective(500px) rotateX(10deg) rotateY(-10deg) scale(1)';
-        label.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
-      });
-    });
-  </script>
-  <!-- batas contoh undangan -->
+    .hero {
+      position: relative;
+      z-index: 1;
+      padding: 2rem;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-  <!-- contoh filter undangan -->
-  <div class="untree_co-section" id="filter-section">
-    <div class="container">
-      <div class="row mb-4">
-        <div class="col-lg-7 text-center mx-auto">
-          <h2 class="section-heading gsap-reveal-hero mb-0"><strong>Filter Undangan</strong></h2>
-          <p class="gsap-reveal-hero">Pilih jenis undangan yang Anda inginkan dengan mudah menggunakan filter kami.</p>
-          <div class="wave gsap-reveal-hero">
-            <svg>
-              <path d="M10,10 L50,100 L90,50" stroke="#0389ff"></path>
-            </svg>
-          </div>
-        </div>
-      </div>
-      
-      <div class="row justify-content-center">
-        <div class="col-12">
-          <div class="filter-buttons text-center mb-4">
-            <div class="d-flex flex-wrap justify-content-center">
-              <button class="btn btn-primary filter-btn active m-1" data-filter="all">Semua</button>
-              <button class="btn btn-primary filter-btn m-1" data-filter="pernikahan">Pernikahan</button>
-              <button class="btn btn-primary filter-btn m-1" data-filter="ulang-tahun">Ulang Tahun</button>
-              <button class="btn btn-primary filter-btn m-1" data-filter="syukuran">Syukuran</button>
-            </div>
-          </div>
-        </div>
-      </div>
+    .hero-content {
+      text-align: center;
+      padding: 0 1rem;
+    }
 
-      <div class="text-center mb-4">
-        <button id="toggleButton" class="btn btn-primary">Tampilkan Undangan</button>
-      </div>
+    .hero-title {
+      font-family: 'Montserrat';
+      font-weight: 900;
+      font-style: italic;
+      font-size: clamp(1.5rem, 8vw, 3rem);
+      color: rgb(0, 0, 0);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.504);
+      margin-bottom: 1rem;
+      overflow: hidden;
+      border-right: 0.15em solid white;
+      white-space: nowrap;
+      animation: typing 5.5s cubic-bezier(0.4, 0, 0.2, 1) infinite, 
+                 blink-caret 1s ease-in-out infinite;
+      margin: 0 auto;
+      margin-bottom: 1rem;
+      width: fit-content;
+      transition: all 0.3s ease;
+    }
 
-      <div id="filter-container" class="row filter-container" style="display: none;">
-        <!-- Konten filter akan diisi secara dinamis menggunakan JavaScript -->
-      </div>
-    </div>
-  </div>
+    @keyframes typing {
+      0% { width: 0 }
+      50% { width: 11ch }
+      100% { width: 0 }
+    }
 
-  <script>
-    const filterData = [
-      {
-        "kategori": "pernikahan",
-        "gambar": "images/img_1.jpg",
-        "altText": "Undangan Pernikahan",
-        "judul": "TEMA GHOTIC",
-      },
-      {
-        "kategori": "ulang-tahun",
-        "gambar": "images/img_4.jpg",
-        "altText": "Undangan Ulang Tahun",
-        "judul": "TEMA KLASIK",
-      },
-      {
-        "kategori": "syukuran",
-        "gambar": "images/img_3.jpg",
-        "altText": "Undangan Syukuran",
-        "judul": "TEMA MODERN",
+    @keyframes blink-caret {
+      0%, 100% { border-color: transparent }
+      50% { border-color: white; opacity: 0.8 }
+    }
+
+    .hero-subtitle {
+      font-family: 'Montserrat';
+      font-weight: 500;
+      font-size: clamp(1rem, 4vw, 1.5rem);
+      color: #009dff;
+      margin-bottom: 2rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
       }
-    ];
+      to {
+        transform: rotate(360deg);
+      }
+    }
 
-    function renderFilterItems() {
-      const container = document.getElementById('filter-container');
-      let html = '';
+    @media screen and (max-width: 768px) {
+      .hero {
+        padding: 1rem;
+      }
+      
+      .hero-content {
+        padding: 0 0.5rem;
+      }
+    }
 
-      filterData.forEach(item => {
-        html += `
-          <div class="col-12 col-sm-6 col-md-4 mb-4 filter-item ${item.kategori}">
-            <div class="card h-100">
-              <div style="height: 0; padding-bottom: 100%; overflow: hidden; position: relative;">
-                <img src="${item.gambar}" class="card-img-top" alt="${item.altText}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
-                <div style="position: absolute; top: 10px; left: 10px; background-color: rgba(3, 137, 255, 0.8); color: white; padding: 8px 15px; border-radius: 20px; transform: perspective(500px) rotateX(15deg) rotateY(-15deg); box-shadow: 3px 3px 10px rgba(0,0,0,0.5); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease;">
-                  ${item.kategori}
+    </style>
+  </section>
+
+  <section class="section2">
+    <h1 class="section2-title">Contoh Undangan</h1>
+    <div class="card-container">
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          fetch('cards.json')
+            .then(response => {
+              if (!response.ok) {
+                throw new Error('Network response was not ok');
+              }
+              return response.json();
+            })
+            .then(cards => {
+              const cardContainer = document.querySelector('.card-container');
+              const cardElements = cards.map(card => `
+                <div class="card">
+                  <img src="${card.image}" alt="${card.title}" loading="lazy">
+                  <div class="card-content">
+                    <h3>${card.title}</h3>
+                  </div>
                 </div>
-              </div>
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title">${item.judul}</h5>
-                <a href="data.html?jenis=${item.kategori}&tema=${item.judul}" class="btn btn-primary mt-auto" rel="noopener noreferrer">Pesan Sekarang</a>
-              </div>
-            </div>
-          </div>
-        `;
-      });
-
-      container.innerHTML = html;
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-      renderFilterItems();
-
-      const filterButtons = document.querySelectorAll('.filter-btn');
-      const filterItems = document.querySelectorAll('.filter-item');
-      const toggleButton = document.getElementById('toggleButton');
-      const filterContainer = document.getElementById('filter-container');
-
-      toggleButton.addEventListener('click', function() {
-        if (filterContainer.style.display === 'none') {
-          filterContainer.style.display = 'flex';
-          toggleButton.textContent = 'Sembunyikan Undangan';
-        } else {
-          filterContainer.style.display = 'none';
-          toggleButton.textContent = 'Tampilkan Undangan';
-        }
-      });
-
-      filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          const filter = this.getAttribute('data-filter');
-          
-          filterButtons.forEach(btn => btn.classList.remove('active'));
-          this.classList.add('active');
-
-          filterItems.forEach(item => {
-            if (filter === 'all' || item.classList.contains(filter)) {
-              item.style.display = 'block';
-              item.style.opacity = '0';
-              setTimeout(() => {
-                item.style.transition = 'opacity 0.5s ease';
-                item.style.opacity = '1';
-              }, 50);
-            } else {
-              item.style.transition = 'opacity 0.5s ease';
-              item.style.opacity = '0';
-              setTimeout(() => {
-                item.style.display = 'none';
-              }, 500);
-            }
-          });
+              `).join('');
+              
+              // Buat wrapper untuk animasi scroll
+              const wrapper = document.createElement('div');
+              wrapper.className = 'scroll-wrapper';
+              wrapper.innerHTML = cardElements + cardElements; // Duplikasi kartu
+              
+              cardContainer.appendChild(wrapper);
+            })
+            .catch(error => {
+              console.error('Error loading cards:', error);
+              const cardContainer = document.querySelector('.card-container');
+              cardContainer.innerHTML = '<p>Gagal memuat kartu. Silakan coba lagi nanti.</p>';
+            });
         });
-      });
-
-      // Tambahkan link untuk Font Awesome icons
-      const fontAwesomeLink = document.createElement('link');
-      fontAwesomeLink.rel = 'stylesheet';
-      fontAwesomeLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css';
-      document.head.appendChild(fontAwesomeLink);
-    });
-  </script>
-  <!-- batas contoh filter undangan -->
-
-
-  <!-- contoh services -->
-
-    <div class="untree_co-section pb-0" id="services-section">
-      <div class="container">
-        <div class="row mb-4">
-          <div class="col-lg-7 text-center mx-auto">
-            <h2 class="section-heading gsap-reveal-hero mb-0"><strong>Layanan</strong></h2>
-            <p class="gsap-reveal-hero">Lengkapi undangan Anda dengan beragam fitur yang kami sediakan sesuai kebutuhan Anda. Mulai dari pemilihan tema, pemilihan warna, aktif selamanya, domain kustom, dan lainnya.</p>
-            <div class="wave gsap-reveal-hero" >
-              <svg>
-                <path d="M10,10 L50,100 L90,50" stroke="#0389ff"></path>
-              </svg>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4">
-            <div class="service text-center">
-              <div class="gsap-reveal-hero mb-3">
-                <span class="icon-service"><img src="images/svg/infinity.svg" alt="Image" class="img-fluid"></span>
-              </div>
-              <h3 class="gsap-reveal-hero">Aktif Selamanya</h3>
-            </div>
-          </div>
-          <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4">
-            <div class="service text-center">
-              <div class="gsap-reveal-hero mb-3">
-                <span class="icon-service"><img src="images/svg/theme.svg" alt="Image" class="img-fluid"></span>
-              </div>
-              <h3 class="gsap-reveal-hero">Tema Kustom</h3>
-            </div>
-          </div>
-          <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4">
-            <div class="service text-center">
-              <div class="gsap-reveal-hero mb-3">
-                <span class="icon-service"><img src="images/svg/domain.svg" alt="Image" class="img-fluid"></span>
-              </div>
-              <h3 class="gsap-reveal-hero">Domain Kustom</h3>
-            </div>
-          </div>
-          <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4">
-            <div class="service text-center">
-              <div class="gsap-reveal-hero mb-3">
-                <span class="icon-service"><img src="images/svg/music.svg" alt="Image" class="img-fluid"></span>
-              </div>
-              <h3 class="gsap-reveal-hero">Musik Kustom</h3>
-            </div>
-          </div>
-        </div>
-      </div>
+      </script>
     </div>
-
-<!-- batas contoh services -->
-
-    <!-- footer -->
-
-    <footer class="untree_co-section">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-6 text-center">
-            <div class="row mt-5">
-              <div class="col-12">
-                <p>© 2023 KataSemata. Hak Cipta Dilindungi.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <!-- batas footer -->
-
-    <!-- loader -->
-
-    <div id="overlayer"></div>
-    <div class="loader">
-      <div class="spinner-border" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
-    </div>
-
-    <!-- batas loader -->
-
-
-    <!-- Navbar bawah untuk HP -->
-    <nav class="navbar fixed-bottom navbar-light d-lg-none">
-      <div class="container-fluid">
-        <a class="nav-link" href="#home-section">
-          <div class="nav-icon"><i class="icon-home"></i></div>
-          <span>Beranda</span>
-        </a>
-        <a class="nav-link" href="#testimonial-section">
-          <div class="nav-icon"><i class="icon-image"></i></div>
-          <span>Contoh</span>
-        </a>
-        <a class="nav-link" href="#filter-section">
-          <div class="nav-icon"><i class="icon-filter"></i></div>
-          <span>Filter</span>
-        </a>
-        <a class="nav-link" href="#services-section">
-          <div class="nav-icon"><i class="icon-cog"></i></div>
-          <span>Layanan</span>
-        </a>
-      </div>
-    </nav>
 
     <style>
-      .navbar.fixed-bottom {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.1);
-        padding: 10px 0;
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px;
+      .card-container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+        overflow: hidden;
+        margin-top: -50px;
       }
-      .navbar.fixed-bottom .container-fluid {
+
+      .scroll-wrapper {
         display: flex;
-        justify-content: space-around;
+        gap: 2rem;
+        animation: scroll 30s linear infinite;
       }
-      .navbar.fixed-bottom .nav-link {
+
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      .card {
+        flex: 0 0 280px;
+        background: #dcdcdc;
+        border-radius: 15px;
+        overflow: hidden;
+        backdrop-filter: blur(10px);
+        transition: transform 0.3s ease;
+      }
+
+      .card img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+      }
+
+      .card-content {
+        padding: 1rem;
+      }
+
+      .card-content h3 {
+        font-family: 'Montserrat';
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        font-weight: 800;
+        color: #009dff;
+        font-size: clamp(1rem, 4vw, 1.5rem);
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      @media screen and (max-width: 768px) {
+        .card-container {
+          margin-top: -30px;
+        }
+
+        .card {
+          flex: 0 0 250px;
+        }
+
+        .card img {
+          height: 350px;
+        }
+      }
+
+      .section2 {
+        background: #dcdcdc;
+        position: relative;
+        overflow: hidden;
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        color: #333;
-        text-decoration: none;
-        transition: all 0.3s ease;
-      }
-      .navbar.fixed-bottom .nav-link:hover,
-      .navbar.fixed-bottom .nav-link.active {
-        color: #0389ff;
-      }
-      .navbar.fixed-bottom .nav-icon {
-        background-color: #f0f8ff;
-        border-radius: 50%;
-        width: 45px;
-        height: 45px;
-        display: flex;
         justify-content: center;
-        align-items: center;
-        margin-bottom: 5px;
-        transition: all 0.3s ease;
+        min-height: 100vh;
+        padding: 2rem 0;
       }
-      .navbar.fixed-bottom .nav-link:hover .nav-icon,
-      .navbar.fixed-bottom .nav-link.active .nav-icon {
-        background-color: #0389ff;
-        box-shadow: 0 4px 10px rgba(3, 137, 255, 0.3);
+
+      .section2::before {
+        content: '';
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+        animation: rotate 20s linear infinite;
       }
-      .navbar.fixed-bottom .nav-link i {
-        font-size: 22px;
-        transition: all 0.3s ease;
-      }
-      .navbar.fixed-bottom .nav-link:hover i,
-      .navbar.fixed-bottom .nav-link.active i {
-        color: #fff;
-      }
-      .navbar.fixed-bottom .nav-link span {
-        font-size: 11px;
-        font-weight: 600;
+
+      .section2-title {
+        font-family: 'Montserrat';
+        font-weight: 800;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
-        opacity: 0.7;
-        transition: all 0.3s ease;
+        font-size: clamp(1.5rem, 8vw, 2rem);
+        color: rgb(0, 0, 0);
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        text-align: center;
+        margin: -80px 0 5rem 0;
       }
-      .navbar.fixed-bottom .nav-link:hover span,
-      .navbar.fixed-bottom .nav-link.active span {
-        opacity: 1;
+
+      @media screen and (max-width: 768px) {
+        .section2 {
+          padding: 1rem;
+        }
+        .section2-title {
+          margin-top: -50px;
+          margin-bottom: 3rem;
+        }
       }
     </style>
-
-    <script>
-      // Menambahkan kelas 'active' pada link yang aktif
-      const navLinks = document.querySelectorAll('.navbar.fixed-bottom .nav-link');
-      navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-          navLinks.forEach(l => l.classList.remove('active'));
-          this.classList.add('active');
-        });
-      });
-
-      // Mendeteksi scroll dan mengubah kelas 'active' sesuai dengan bagian yang terlihat
-      window.addEventListener('scroll', () => {
-        const scrollPosition = window.scrollY;
-        document.querySelectorAll('section').forEach(section => {
-          if (section.offsetTop <= scrollPosition + 200 && section.offsetTop + section.offsetHeight > scrollPosition + 200) {
-            const id = section.getAttribute('id');
-            document.querySelector(`.navbar.fixed-bottom .nav-link[href="#${id}"]`).classList.add('active');
-          } else {
-            const id = section.getAttribute('id');
-            document.querySelector(`.navbar.fixed-bottom .nav-link[href="#${id}"]`).classList.remove('active');
-          }
-        });
-      });
-    </script>
-    <!-- Batas navbar bawah untuk HP -->
-
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.animateNumber.min.js"></script>
-    <script src="js/jquery.waypoints.min.js"></script>
-    <script src="js/jquery.fancybox.min.js"></script>
-    <script src="js/aos.js"></script>
-    <script src="js/wave-animate.js"></script>
-    <script src="js/circle-progress.js"></script>
-    <script src="js/imagesloaded.pkgd.js"></script>
-    <script src="js/isotope.pkgd.min.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
-    <script src="js/TweenMax.min.js"></script>
-    <script src="js/ScrollMagic.min.js"></script>
-    <script src="js/scrollmagic.animation.gsap.min.js"></script>
-
-
-    <script src="js/custom.js"></script>
     
-  </body>
+  </section>
 
-  </html>
+  <section class="section3">
+    <h1>Hello World</h1>
+  </section>
+
+  <section class="section4">
+    <h1>Hello World</h1>
+  </section>
+  
+  <section class="section5">
+    <h1>Hello World</h1>
+  </section>
+</div>
+<style>
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .container {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+  }
+
+  section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+  }
+  .section3 {
+    background-color: blue;
+  }
+  .section4 {
+    background-color: yellow;
+  }
+  .section5 {
+    background-color: purple;
+  }
+</style>
+
+<!--NAVBAR-->
+<div class="bottom-bar">
+  <ion-icon name="add-circle-outline" class="icon" onclick="change(this); document.querySelector('.section2').scrollIntoView({behavior: 'smooth'})">
+  </ion-icon>
+  <ion-icon name="folder-outline" class="icon" onclick="change(this); document.querySelector('.section3').scrollIntoView({behavior: 'smooth'})">
+  </ion-icon>
+  <ion-icon
+    name="home-outline"
+    class="icon active"
+    onclick="change(this); document.querySelector('.section1').scrollIntoView({behavior: 'smooth'})"
+  >
+  </ion-icon>
+  <ion-icon name="person-outline" class="icon" onclick="change(this); document.querySelector('.section4').scrollIntoView({behavior: 'smooth'})">
+  </ion-icon>
+  <ion-icon name="image-outline" class="icon" onclick="change(this); document.querySelector('.section5').scrollIntoView({behavior: 'smooth'})">
+  </ion-icon>
+</div>
+<script>
+  function change(item) {
+    const buttons = document.querySelectorAll('.bottom-bar ion-icon');
+    buttons.forEach(button => {
+      button.classList.remove("active");
+    });
+    item.classList.add("active");
+  }
+</script>
+<style>
+  .bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    text-align: center;
+    width: 100%;
+    padding: 0.5em;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 50px 50px 0 0;
+  }
+  .icon {
+    font-size: clamp(1.2em, 3vw, 1.5em);
+    padding: clamp(0.3em, 2vw, 0.5em);
+    margin: clamp(0.3em, 2vw, 0.5em);
+    transition: 0.3s ease-in-out;
+    border-radius: 50%;
+    border: 7px solid white;
+    cursor: pointer;
+  }
+  .active {
+    transform: scale(1.25) translateY(-2em); /* Mengubah -1.5em menjadi -2em untuk menaikkan lebih tinggi lagi */
+    background: linear-gradient(135deg, #23f, #6589ff);
+    border: 7px solid #dcdcdc;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+
+  @media screen and (max-width: 480px) {
+    .bottom-bar {
+      padding: 0.3em;
+    }
+    .icon {
+      margin: 0.2em;
+      border-width: 5px;
+    }
+    .active {
+      transform: scale(1.15) translateY(-1.2em); /* Mengubah -0.8em menjadi -1.2em untuk menaikkan lebih tinggi lagi di mobile */
+    }
+  }
+</style>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<!--CLOSE NAVBAR-->
+
+</body>
+</html>

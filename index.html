@@ -170,12 +170,17 @@
       .scroll-wrapper {
         display: flex;
         gap: 2rem;
-        animation: scroll 30s linear infinite;
+        animation: scroll 40s linear infinite;
+        width: max-content;
+        transition: all 0.5s ease;
       }
 
       @keyframes scroll {
         0% {
           transform: translateX(0);
+        }
+        50% {
+          transform: translateX(-25%); 
         }
         100% {
           transform: translateX(-50%);
@@ -317,19 +322,15 @@
 
 <!--NAVBAR-->
 <div class="bottom-bar">
-  <ion-icon name="add-circle-outline" class="icon" onclick="change(this); document.querySelector('.section2').scrollIntoView({behavior: 'smooth'})">
+  <ion-icon name="home-outline" class="icon active" onclick="change(this); scrollToSection('.section1', 1000)">
   </ion-icon>
-  <ion-icon name="folder-outline" class="icon" onclick="change(this); document.querySelector('.section3').scrollIntoView({behavior: 'smooth'})">
+  <ion-icon name="folder-outline" class="icon" onclick="change(this); scrollToSection('.section2', 1000)">
   </ion-icon>
-  <ion-icon
-    name="home-outline"
-    class="icon active"
-    onclick="change(this); document.querySelector('.section1').scrollIntoView({behavior: 'smooth'})"
-  >
+  <ion-icon name="add-circle-outline" class="icon" onclick="change(this); scrollToSection('.section3', 1000)">
   </ion-icon>
-  <ion-icon name="person-outline" class="icon" onclick="change(this); document.querySelector('.section4').scrollIntoView({behavior: 'smooth'})">
+  <ion-icon name="person-outline" class="icon" onclick="change(this); scrollToSection('.section4', 1000)">
   </ion-icon>
-  <ion-icon name="image-outline" class="icon" onclick="change(this); document.querySelector('.section5').scrollIntoView({behavior: 'smooth'})">
+  <ion-icon name="image-outline" class="icon" onclick="change(this); scrollToSection('.section5', 1000)">
   </ion-icon>
 </div>
 <script>
@@ -340,6 +341,23 @@
     });
     item.classList.add("active");
   }
+
+  // Tambahkan Intersection Observer untuk mendeteksi scroll
+  const sections = document.querySelectorAll('section');
+  const icons = document.querySelectorAll('.bottom-bar ion-icon');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const sectionIndex = Array.from(sections).indexOf(entry.target);
+        change(icons[sectionIndex]);
+      }
+    });
+  }, {
+    threshold: 0.5
+  });
+
+  sections.forEach(section => observer.observe(section));
 </script>
 <style>
   .bottom-bar {
@@ -366,7 +384,7 @@
     cursor: pointer;
   }
   .active {
-    transform: scale(1.25) translateY(-2em); /* Mengubah -1.5em menjadi -2em untuk menaikkan lebih tinggi lagi */
+    transform: scale(1.25) translateY(-2em);
     background: linear-gradient(135deg, #23f, #6589ff);
     border: 7px solid #dcdcdc;
     color: white;
@@ -382,7 +400,7 @@
       border-width: 5px;
     }
     .active {
-      transform: scale(1.15) translateY(-1.2em); /* Mengubah -0.8em menjadi -1.2em untuk menaikkan lebih tinggi lagi di mobile */
+      transform: scale(1.15) translateY(-1.2em);
     }
   }
 </style>

@@ -397,7 +397,7 @@
     </script>
   </section>
 
-  <section class="section3">
+  <section class="section3" style="margin-bottom: 100px;">
     
     <div class="wrap">
       <h1 class="section3-title">KATALOG UNDANGAN</h1>
@@ -416,9 +416,9 @@
           <li><span class="filter" data-filter="khitanan">Khitanan</span></li>
         </ul>
 
-        <button id="toggleGallery" style="font-family: 'Montserrat'; background-color: #009dff53; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);" class="toggle-btn">Sembunyikan Galeri</button>
+        <button id="toggleGallery" style="font-family: 'Montserrat'; background-color: #009dff53; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);" class="toggle-btn">Tampilkan Galeri</button>
         
-        <div id="gallery">
+        <div id="gallery" style="display: none;">
         </div><!--/gallery-->
         
       </div><!--/gallery-wrap-->
@@ -791,7 +791,7 @@ SECTION 4,5-->
 </style>
 
 <!--NAVBAR-->
-<div class="bottom-bar">
+<div class="bottom-bar" style="margin: auto; margin-top: 50px;">
   <ion-icon name="home-outline" class="icon active" onclick="change(this); document.querySelector('.section1').scrollIntoView({behavior: 'smooth'})">
   </ion-icon>
   <ion-icon name="albums-outline" class="icon" onclick="change(this); document.querySelector('.section2').scrollIntoView({behavior: 'smooth'})">
@@ -845,6 +845,7 @@ SECTION 4,5-->
     justify-content: space-around;
     align-items: center;
     border-radius: 50px 50px 0 0;
+    margin-top: 50px; /* Menambahkan margin atas */
   }
   .icon {
     font-size: clamp(1.2em, 3vw, 1.5em);
@@ -867,6 +868,7 @@ SECTION 4,5-->
   @media screen and (max-width: 480px) {
     .bottom-bar {
       padding: 0.3em;
+      margin-top: 30px; /* Mengurangi margin atas pada layar kecil */
     }
     .icon {
       margin: 0.2em;

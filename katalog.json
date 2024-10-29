@@ -1,43 +1,37 @@
 [
   {
     "title": "Undangan Pernikahan Digital",
-    "image": "images/2.jpg",
-    "category": "web",
-    "whatsapp": "Pesan Lewat WhatsApp"
+    "image": "images/2.jpg", 
+    "category": "wedding"
   },
   {
-    "title": "Undangan Pernikahan Cetak", 
+    "title": "Undangan Pernikahan Cetak",
     "image": "images/3.jpg",
-    "category": "print"
+    "category": "wedding"
+    
   },
   {
-    "title": "Logo Perusahaan",
-    "image": "images/4.jpeg", 
-    "category": "logo",
-    "whatsapp": "Pesan Lewat WhatsApp"
+    "title": "Undangan Khitanan Digital",
+    "image": "images/4.jpeg",
+    "category": "khitanan"
+    
   },
   {
-    "title": "Strategi Marketing",
-    "image": "images/5.jpg",
-    "category": "strategy",
-    "whatsapp": "Pesan Lewat WhatsApp"
+    "title": "Undangan Khitanan Cetak",
+    "image": "images/5.jpg", 
+    "category": "khitanan"
+    
   },
   {
-    "title": "Website Company Profile",
+    "title": "Undangan Ulang Tahun Digital",
     "image": "images/6.jpg",
-    "category": "web",
-    "whatsapp": "Pesan Lewat WhatsApp"
+    "category": "birthday"
+    
   },
   {
-    "title": "Kartu Nama",
+    "title": "Undangan Ulang Tahun Cetak",
     "image": "images/7.jpg",
-    "category": "print",
-    "whatsapp": "Pesan Lewat WhatsApp"
-  },
-  {
-    "title": "Logo Brand",
-    "image": "images/8.jpg",
-    "category": "logo",
-    "whatsapp": "Pesan Lewat WhatsApp"
+    "category": "birthday"
+    
   }
 ]

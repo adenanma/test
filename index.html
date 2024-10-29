@@ -21,6 +21,101 @@
     <div class="hero">
       <div class="hero-content">
         <h1 class="hero-title">kataSemata<span style="color: #009dff;">.</span></h1>
+            <!-- START DISCOUNT BANNER-->
+    <div class="discount-banner">
+      <div class="discount-content">
+        <span>🎉 DISKON 30% UNTUK PEMESANAN PERTAMA 🎉</span>
+        <span>🌟 DISKON KHUSUS HARI RAYA 🌟</span>
+        <span>🚚 GRATIS ONGKIR SELURUH INDONESIA 🚚</span>
+        <span>💫 BONUS DESAIN PREMIUM 💫</span>
+        <span>🎁 CASHBACK 50RB MIN. PEMBELIAN 200RB 🎁</span>
+        <span>🎉 DISKON 30% UNTUK PEMESANAN PERTAMA 🎉</span>
+        <span>🌟 DISKON KHUSUS HARI RAYA 🌟</span>
+        <span>🚚 GRATIS ONGKIR SELURUH INDONESIA 🚚</span>
+        <span>💫 BONUS DESAIN PREMIUM 💫</span>
+        <span>🎁 CASHBACK 50RB MIN. PEMBELIAN 200RB 🎁</span>
+      </div>
+    </div>
+    <style>
+      .discount-banner {
+        width: 100%;
+        background: linear-gradient(135deg, #009dff, #23f);
+        color: white;
+        padding: 0.8rem;
+        overflow: hidden;
+        margin-bottom: 2rem;
+        position: relative;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        margin-bottom: 1rem; /* Mengubah margin bottom untuk desktop */
+      }
+
+      .discount-banner::before,
+      .discount-banner::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 50px;
+        height: 100%;
+        z-index: 2;
+      }
+
+      .discount-banner::before {
+        left: 0;
+        background: linear-gradient(to right, rgba(0,157,255,1), transparent);
+      }
+
+      .discount-banner::after {
+        right: 0;
+        background: linear-gradient(to left, rgba(34,51,255,1), transparent);
+      }
+
+      .discount-content {
+        display: flex;
+        animation: scrollText 50s linear infinite;
+        white-space: nowrap;
+        overflow: hidden;
+        width: max-content;
+        gap: 1rem;
+        padding: 0.5rem 0;
+      }
+
+      .discount-content span {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: clamp(0.8rem, 2vw, 1rem);
+        padding: 0 2rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        position: relative;
+      }
+
+      .discount-content span:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
+      }
+
+      @keyframes scrollText {
+        0% {
+          transform: translateX(15%);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        .discount-banner {
+          padding: 0.5rem;
+        }
+        
+        .discount-content span {
+          padding: 0 1rem;
+        }
+      }
+    </style>
+    <!-- END DISCOUNT BANNER-->
         <p class="hero-subtitle">Invitation Card Digital</p>
       </div>
     </div>
@@ -119,44 +214,13 @@
   </section>
 
   <section class="section2">
-    <h1 class="section2-title">Contoh Undangan</h1>
-    <div class="card-container">
-      <script>
-        document.addEventListener('DOMContentLoaded', () => {
-          fetch('cards.json')
-            .then(response => {
-              if (!response.ok) {
-                throw new Error('Network response was not ok');
-              }
-              return response.json();
-            })
-            .then(cards => {
-              const cardContainer = document.querySelector('.card-container');
-              const cardElements = cards.map(card => `
-                <div class="card">
-                  <img src="${card.image}" alt="${card.title}" loading="lazy">
-                  <div class="card-content">
-                    <h3>${card.title}</h3>
-                  </div>
-                </div>
-              `).join('');
-              
-              // Buat wrapper untuk animasi scroll
-              const wrapper = document.createElement('div');
-              wrapper.className = 'scroll-wrapper';
-              wrapper.innerHTML = cardElements + cardElements; // Duplikasi kartu
-              
-              cardContainer.appendChild(wrapper);
-            })
-            .catch(error => {
-              console.error('Error loading cards:', error);
-              const cardContainer = document.querySelector('.card-container');
-              cardContainer.innerHTML = '<p>Gagal memuat kartu. Silakan coba lagi nanti.</p>';
-            });
-        });
-      </script>
+    <div class="section2-title-container">
+      <h1 class="section2-title">Contoh Undangan</h1>
+      <p class="section2-description">Temukan berbagai pilihan desain undangan digital yang menarik dan elegan. Kami menyediakan beragam template yang dapat disesuaikan dengan kebutuhan dan selera Anda.</p>
     </div>
 
+    <div class="card-container">
+    </div>
     <style>
       .card-container {
         width: 100%;
@@ -227,7 +291,7 @@
         }
 
         .card img {
-          height: 350px;
+          height: 300px;
         }
       }
 
@@ -261,7 +325,26 @@
         color: rgb(0, 0, 0);
         text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         text-align: center;
-        margin: -80px 0 5rem 0;
+        margin: -80px 0 1rem 0;
+      }
+
+      .section2-description {
+        font-family: 'Montserrat';
+        font-weight: 500;
+        font-size: clamp(0.9rem, 3vw, 1.1rem);
+        color: #333;
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 4rem auto;
+        padding: 0 1rem;
+        line-height: 1.5;
+      }
+
+      .section2-title-container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
       }
 
       @media screen and (max-width: 768px) {
@@ -270,17 +353,54 @@
         }
         .section2-title {
           margin-top: -50px;
+          margin-bottom: 1rem;
+        }
+        .section2-description {
           margin-bottom: 3rem;
+          font-size: 0.9rem;
         }
       }
     </style>
-    
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        fetch('cards.json')
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          })
+          .then(cards => {
+            const cardContainer = document.querySelector('.card-container');
+            const cardElements = cards.map(card => `
+              <div class="card">
+                <img src="${card.image}" alt="${card.title}" loading="lazy">
+                <div class="card-content">
+                  <h3>${card.title}</h3>
+                </div>
+              </div>
+            `).join('');
+            
+            // Buat wrapper untuk animasi scroll
+            const wrapper = document.createElement('div');
+            wrapper.className = 'scroll-wrapper';
+            wrapper.innerHTML = cardElements + cardElements; // Duplikasi kartu
+            
+            cardContainer.appendChild(wrapper);
+          })
+          .catch(error => {
+            console.error('Error loading cards:', error);
+            const cardContainer = document.querySelector('.card-container');
+            cardContainer.innerHTML = '<p>Gagal memuat kartu. Silakan coba lagi nanti.</p>';
+          });
+      });
+    </script>
   </section>
 
   <section class="section3">
     
     <div class="wrap">
-      <h1 class="section3-title">KATALOG</h1>
+      <h1 class="section3-title">KATALOG UNDANGAN</h1>
       
       <div class="gallery-wrap">
         
@@ -335,7 +455,7 @@
         font-family: 'Montserrat';
         font-weight: 800;
         text-transform: uppercase;
-        font-size: clamp(1.5rem, 4vw, 3rem);
+        font-size: clamp(1.5rem, 8vw, 2rem);
         color: rgb(0, 0, 0);
         text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         text-align: center;
@@ -473,44 +593,7 @@
       .gallery-item:hover .overlay {
         opacity: 1;
       }
-      .lihat-btn {
-        display: inline-block;
-        background-color: #009dff;
-        color: white;
-        padding: 2px 6px;
-        border-radius: 50px;
-        text-decoration: none;
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 600;
-        font-size: 0.6rem;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-      }
-
-      .lihat-btn:hover {
-        background-color: #0077cc;
-        transform: scale(1.05);
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-      }
-      .whatsapp-btn {
-        display: inline-block;
-        background-color: #25D366;
-        color: white;
-        padding: 2px 6px;
-        border-radius: 50px;
-        text-decoration: none;
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 600;
-        font-size: 0.6rem;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-      }
-
-      .whatsapp-btn:hover {
-        background-color: #1EBE5D;
-        transform: scale(1.05);
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-      }
+      
 
       img {
         width: 100%;
@@ -598,11 +681,11 @@
                     <div class="text">
                       <h2 style="font-size: 1.2rem; font-family: 'Montserrat';">${card.title}</h2>
                       <p style="margin-bottom: 0.5rem; font-family: 'Montserrat';">Kategori: ${card.category}</p>
-                      <button class="lihat-btn" onclick="window.open('${card.link}', '_blank')">
-                        <i class="fas fa-eye"></i> LIHAT
+                      <button class="elegant-btn preview-btn" onclick="window.open('${card.link}', '_blank')" style="background: linear-gradient(135deg, #009dff, #23f); border: none; color: white; padding: 8px 16px; border-radius: 25px; font-family: 'Montserrat'; font-weight: 600; font-size: 0.9rem; margin: 5px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: all 0.3s ease;">
+                        <i class="fas fa-eye"></i> Preview
                       </button>
-                      <button class="whatsapp-btn" onclick="window.location.href='data.html?link=' + encodeURIComponent('${card.link}') + '&jenis=' + encodeURIComponent('${card.category}') + '&tema=' + encodeURIComponent('${card.title}')">
-                        ORDER <i class="fab fa-whatsapp"></i>
+                      <button class="elegant-btn order-btn" onclick="window.location.href='data.html?link=' + encodeURIComponent('${card.link}') + '&jenis=' + encodeURIComponent('${card.category}') + '&tema=' + encodeURIComponent('${card.title}')" style="background: linear-gradient(135deg, #009dff, #23f); border: none; color: white; padding: 8px 16px; border-radius: 25px; font-family: 'Montserrat'; font-weight: 600; font-size: 0.9rem; margin: 5px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: all 0.3s ease;">
+                        <i class="fab fa-whatsapp"></i> Order Now
                       </button>
                     </div>
                   </div>
@@ -664,6 +747,8 @@
     
   </section>
 
+<!--SECTION 4,5
+
   <section class="section4">
     <h1>Hello World</h1>
     
@@ -672,6 +757,8 @@
   <section class="section5">
     <h1>Hello World</h1>
   </section>
+
+SECTION 4,5-->
 </div>
 <style>
 
@@ -707,14 +794,16 @@
 <div class="bottom-bar">
   <ion-icon name="home-outline" class="icon active" onclick="change(this); document.querySelector('.section1').scrollIntoView({behavior: 'smooth'})">
   </ion-icon>
-  <ion-icon name="folder-outline" class="icon" onclick="change(this); document.querySelector('.section2').scrollIntoView({behavior: 'smooth'})">
+  <ion-icon name="albums-outline" class="icon" onclick="change(this); document.querySelector('.section2').scrollIntoView({behavior: 'smooth'})">
   </ion-icon>
-  <ion-icon name="add-circle-outline" class="icon" onclick="change(this); document.querySelector('.section3').scrollIntoView({behavior: 'smooth'})">
+  <ion-icon name="bag-outline" class="icon" onclick="change(this); document.querySelector('.section3').scrollIntoView({behavior: 'smooth'})">
   </ion-icon>
+  <!--SECTION 4,5
   <ion-icon name="person-outline" class="icon" onclick="change(this); document.querySelector('.section4').scrollIntoView({behavior: 'smooth'})">
   </ion-icon>
   <ion-icon name="image-outline" class="icon" onclick="change(this); document.querySelector('.section5').scrollIntoView({behavior: 'smooth'})">
   </ion-icon>
+  SECTION 4,5-->
 </div>
 <script>
   function change(item) {

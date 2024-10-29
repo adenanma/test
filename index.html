@@ -598,10 +598,10 @@
                     <div class="text">
                       <h2 style="font-size: 1.2rem; font-family: 'Montserrat';">${card.title}</h2>
                       <p style="margin-bottom: 0.5rem; font-family: 'Montserrat';">Kategori: ${card.category}</p>
-                      <button class="lihat-btn" onclick="window.open('${card.image}', '_blank')">
+                      <button class="lihat-btn" onclick="window.open('${card.link}', '_blank')">
                         <i class="fas fa-eye"></i> LIHAT
                       </button>
-                      <button class="whatsapp-btn" onclick="window.open('https://wa.me/6285172121407?text=Halo, saya tertarik dengan produk ${card.title} kategori ${card.category}.', '_blank')">
+                      <button class="whatsapp-btn" onclick="window.location.href='data.html?link=' + encodeURIComponent('${card.link}') + '&jenis=' + encodeURIComponent('${card.category}') + '&tema=' + encodeURIComponent('${card.title}')">
                         ORDER <i class="fab fa-whatsapp"></i>
                       </button>
                     </div>

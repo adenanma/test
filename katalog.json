@@ -2,36 +2,37 @@
   {
     "title": "Undangan Pernikahan Digital",
     "image": "images/2.jpg", 
-    "category": "wedding"
+    "category": "wedding",
+    "link": "https://adenanma.github.io/test/"
   },
   {
     "title": "Undangan Pernikahan Cetak",
     "image": "images/3.jpg",
-    "category": "wedding"
-    
+    "category": "wedding",
+    "link": "https://adenanma.github.io/test/"
   },
   {
     "title": "Undangan Khitanan Digital",
     "image": "images/4.jpeg",
-    "category": "khitanan"
-    
+    "category": "khitanan",
+    "link": "https://adenanma.github.io/test/"
   },
   {
     "title": "Undangan Khitanan Cetak",
     "image": "images/5.jpg", 
-    "category": "khitanan"
-    
+    "category": "khitanan",
+    "link": "https://adenanma.github.io/test/"
   },
   {
     "title": "Undangan Ulang Tahun Digital",
     "image": "images/6.jpg",
-    "category": "birthday"
-    
+    "category": "birthday",
+    "link": "https://adenanma.github.io/test/"
   },
   {
     "title": "Undangan Ulang Tahun Cetak",
     "image": "images/7.jpg",
-    "category": "birthday"
-    
+    "category": "birthday",
+    "link": "https://adenanma.github.io/test/"
   }
 ]

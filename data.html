@@ -24,24 +24,23 @@
 <div class="container mt-5">
   <h2 class="text-center mb-4">Formulir Data Undangan</h2>
 
-  <form id="undanganForm">
+  <form id="undanganForm" onsubmit="kirimWhatsApp(event)">
     <div class="row">
-      <div class="col-md-6 mb-3">
-        <label for="jenis-undangan" class="form-label"><i class="fas fa-envelope"></i> Jenis Undangan</label>
-        <select class="form-select" id="jenis-undangan" required>
-          <option value="" selected disabled>Pilih jenis undangan</option>
-          <option value="pernikahan">Undangan Pernikahan</option>
-          <option value="aqiqah">Undangan Aqiqah</option>
-          <option value="syukuran">Undangan Syukuran</option>
-          <option value="ulang-tahun">Undangan Ulang Tahun</option>
-        </select>
+      <div class="mb-3">
+        <label for="jenis-undangan" class="form-label"><i class="fas fa-list"></i> Jenis Undangan</label>
+        <input type="text" class="form-control" id="jenis-undangan" readonly>
       </div>
-      <div class="col-md-6 mb-3">
+
+      <div class="mb-3">
         <label for="tema-undangan" class="form-label"><i class="fas fa-palette"></i> Tema Undangan</label>
         <input type="text" class="form-control" id="tema-undangan" readonly>
       </div>
+      <div class="mb-3">
+        <label for="link-undangan" class="form-label"><i class="fas fa-link"></i> Katalog Undangan</label>
+        <input type="text" class="form-control" id="link-undangan" readonly>
+        <small class="text-muted">Link undangan akan otomatis terisi sesuai pilihan dari halaman utama</small>
+      </div>
     </div>
-
     <h3 class="mb-3 text-primary"><i class="fas fa-male"></i> Data Mempelai Pria</h3>
     <div class="row">
       <div class="col-md-6 mb-3">
@@ -156,7 +155,7 @@
     <div class="row">
       <div class="col-md-4 mb-3">
         <label for="nomor-rekening" class="form-label">Nomor Rekening (Opsional)</label>
-        <input type="text" class="form-control" id="nomor-rekening" placeholder="Masukkan nomor rekening untuk amplop digital">
+        <input type="text" class="form-control" id="nomor-rekening" placeholder="Untuk amplop digital">
       </div>
       <div class="col-md-4 mb-3">
         <label for="nama-bank" class="form-label">Nama Bank (Opsional)</label>
@@ -173,7 +172,7 @@
     </div>
     <div class="mb-3">
       <label for="link-google-drive" class="form-label">Link Google Drive Untuk Foto dan Video</label>
-      <input type="url" class="form-control" id="link-google-drive" placeholder="Masukkan link Google Drive, Buat Dalam Zip/Rar" required>
+      <input type="url" class="form-control" id="link-google-drive" placeholder="Masukkan link Google Drive" required>
     </div>
     
     <button type="submit" class="btn btn-primary w-100">Kirim ke WhatsApp</button>
@@ -228,84 +227,128 @@
 </style>
 
 <script>
+function kirimWhatsApp(e) {
+  e.preventDefault();
+
+  // Mengambil semua nilai input
+  const jenisUndangan = document.getElementById('jenis-undangan').value;
+  const temaUndangan = document.getElementById('tema-undangan').value;
+  const linkUndangan = document.getElementById('link-undangan').value;
+  
+  // Data Mempelai Pria
+  const namaLengkapPria = document.getElementById('nama-lengkap-pria').value;
+  const namaPanggilanPria = document.getElementById('nama-panggilan-pria').value;
+  const namaBapakPria = document.getElementById('nama-bapak-pria').value;
+  const namaIbuPria = document.getElementById('nama-ibu-pria').value;
+  const anakKePria = document.getElementById('anak-ke-pria').value;
+  
+  // Data Mempelai Wanita
+  const namaLengkapWanita = document.getElementById('nama-lengkap-wanita').value;
+  const namaPanggilanWanita = document.getElementById('nama-panggilan-wanita').value;
+  const namaBapakWanita = document.getElementById('nama-bapak-wanita').value;
+  const namaIbuWanita = document.getElementById('nama-ibu-wanita').value;
+  const anakKeWanita = document.getElementById('anak-ke-wanita').value;
+  
+  // Data Akad
+  const tanggalAkad = document.getElementById('tanggal-akad').value;
+  const jamAkad = document.getElementById('jam-akad').value;
+  const tempatAkad = document.getElementById('tempat-akad').value;
+  const alamatAkad = document.getElementById('alamat-akad').value;
+  const linkMapsAkad = document.getElementById('link-maps-akad').value;
+  
+  // Data Resepsi
+  const tanggalResepsi = document.getElementById('tanggal-resepsi').value;
+  const jamResepsi = document.getElementById('jam-resepsi').value;
+  const tempatResepsi = document.getElementById('tempat-resepsi').value;
+  const alamatResepsi = document.getElementById('alamat-resepsi').value;
+  const linkMapsResepsi = document.getElementById('link-maps-resepsi').value;
+  
+  // Data Pelengkap
+  const nomorWhatsappPria = document.getElementById('nomor-whatsapp-pria').value;
+  const nomorWhatsappWanita = document.getElementById('nomor-whatsapp-wanita').value;
+  const nomorRekening = document.getElementById('nomor-rekening').value;
+  const namaBank = document.getElementById('nama-bank').value;
+  const atasNama = document.getElementById('atas-nama').value;
+  const musikLatar = document.getElementById('musik-latar').value;
+  const linkGoogleDrive = document.getElementById('link-google-drive').value;
+
+  // Menyusun pesan
+  let pesan = `*DATA UNDANGAN*%0A%0A`;
+  pesan += `*Jenis Undangan:* ${jenisUndangan}%0A`;
+  pesan += `*Tema Undangan:* ${temaUndangan}%0A`;
+  pesan += `*Link Katalog:* ${linkUndangan}%0A%0A`;
+  
+  pesan += `*DATA MEMPELAI PRIA*%0A`;
+  pesan += `Nama Lengkap: ${namaLengkapPria}%0A`;
+  pesan += `Nama Panggilan: ${namaPanggilanPria}%0A`;
+  pesan += `Nama Bapak: ${namaBapakPria}%0A`;
+  pesan += `Nama Ibu: ${namaIbuPria}%0A`;
+  pesan += `Anak ke: ${anakKePria}%0A%0A`;
+  
+  pesan += `*DATA MEMPELAI WANITA*%0A`;
+  pesan += `Nama Lengkap: ${namaLengkapWanita}%0A`;
+  pesan += `Nama Panggilan: ${namaPanggilanWanita}%0A`;
+  pesan += `Nama Bapak: ${namaBapakWanita}%0A`;
+  pesan += `Nama Ibu: ${namaIbuWanita}%0A`;
+  pesan += `Anak ke: ${anakKeWanita}%0A%0A`;
+  
+  pesan += `*DATA AKAD*%0A`;
+  pesan += `Tanggal: ${tanggalAkad}%0A`;
+  pesan += `Jam: ${jamAkad}%0A`;
+  pesan += `Tempat: ${tempatAkad}%0A`;
+  pesan += `Alamat: ${alamatAkad}%0A`;
+  pesan += `Link Maps: ${linkMapsAkad}%0A%0A`;
+  
+  pesan += `*DATA RESEPSI*%0A`;
+  pesan += `Tanggal: ${tanggalResepsi}%0A`;
+  pesan += `Jam: ${jamResepsi}%0A`;
+  pesan += `Tempat: ${tempatResepsi}%0A`;
+  pesan += `Alamat: ${alamatResepsi}%0A`;
+  pesan += `Link Maps: ${linkMapsResepsi}%0A%0A`;
+  
+  pesan += `*DATA PELENGKAP*%0A`;
+  pesan += `WhatsApp Pria: ${nomorWhatsappPria}%0A`;
+  pesan += `WhatsApp Wanita: ${nomorWhatsappWanita}%0A`;
+  if(nomorRekening) pesan += `Rekening: ${nomorRekening} (${namaBank} - ${atasNama})%0A`;
+  if(musikLatar) pesan += `Musik Latar: ${musikLatar}%0A`;
+  pesan += `Link Drive: ${linkGoogleDrive}`;
+
+  // Nomor WhatsApp tujuan
+  const nomorTujuan = "6285172121407";
+  
+  // Membuat link WhatsApp
+  const linkWA = `https://wa.me/${nomorTujuan}?text=${pesan}`;
+  
+  // Membuka WhatsApp di tab baru
+  window.open(linkWA, '_blank');
+
+  // Reload halaman setelah mengirim pesan
+  window.location.reload();
+}
+
+// Mengambil parameter dari URL
+const urlParams = new URLSearchParams(window.location.search);
+const link = urlParams.get('link');
+const jenis = urlParams.get('jenis');
+const tema = urlParams.get('tema');
+
+// Mengisi form dengan nilai dari parameter URL
 document.addEventListener('DOMContentLoaded', function() {
-  const form = document.getElementById('undanganForm');
-  const jenisUndanganSelect = document.getElementById('jenis-undangan');
-  const temaUndanganInput = document.getElementById('tema-undangan');
-  
-  // Mendapatkan jenis undangan dan tema dari URL
-  const urlParams = new URLSearchParams(window.location.search);
-  const jenisUndangan = urlParams.get('jenis');
-  const temaUndangan = urlParams.get('tema');
-  
-  // Mengatur nilai jenis undangan dan tema jika ada
-  if (jenisUndangan) {
-    jenisUndanganSelect.value = jenisUndangan;
-    jenisUndanganSelect.disabled = true;
+  if(link) {
+    document.getElementById('link-undangan').value = decodeURIComponent(link);
   }
-  
-  if (temaUndangan) {
-    temaUndanganInput.value = temaUndangan;
-    temaUndanganInput.disabled = true;
+  if(jenis) {
+    document.getElementById('jenis-undangan').value = decodeURIComponent(jenis);
   }
-  
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Validasi form
-    const inputs = form.querySelectorAll('input, select');
-    let isValid = true;
-    let whatsappMessage = 'Halo, saya ingin memesan undangan dengan detail berikut:%0A%0A';
-
-    inputs.forEach(input => {
-      if (input.required && !input.value) {
-        isValid = false;
-        input.classList.add('is-invalid');
-      } else {
-        input.classList.remove('is-invalid');
-        if (input.id !== 'tema-undangan') {
-          whatsappMessage += `${input.previousElementSibling.textContent}: ${input.value}%0A`;
-        }
-      }
-    });
-
-    if (!isValid) {
-      alert('Mohon lengkapi semua field yang wajib diisi.');
-      return;
-    }
-    
-    // Menambahkan tema undangan ke pesan
-    whatsappMessage += `Tema Undangan: ${temaUndanganInput.value}%0A`;
-
-    // Nomor WhatsApp tujuan (ganti dengan nomor yang sesuai)
-    const whatsappNumber = '6285172121407';
-
-    // Membuat URL untuk membuka WhatsApp
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
-
-    // Membuka WhatsApp di tab baru
-    window.open(whatsappUrl, '_blank');
-    
-    // Reset form setelah mengirim
-    form.reset();
-    
-    // Mengaktifkan kembali pilihan jenis undangan dan tema setelah form direset
-    jenisUndanganSelect.disabled = false;
-    temaUndanganInput.disabled = false;
-  });
-  
-  // Animasi sederhana untuk input fields
-  const inputs = document.querySelectorAll('.form-control, .form-select');
-  inputs.forEach(input => {
-    input.addEventListener('focus', function() {
-      this.style.transform = 'scale(1.02)';
-    });
-    input.addEventListener('blur', function() {
-      this.style.transform = 'scale(1)';
-    });
-  });
+  if(tema) {
+    document.getElementById('tema-undangan').value = decodeURIComponent(tema);
+  }
 });
 </script>
+
+      
+
+
 
 <script>
 // Fungsi untuk menambahkan efek scroll ke atas halaman

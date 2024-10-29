@@ -8,6 +8,7 @@
   <meta name="author" content="kataSemata">
   <link rel="icon" href="images/logo.png" style="width: 20px; height: 20px;" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.5.2/collection/components/icon/icon.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -277,11 +278,395 @@
   </section>
 
   <section class="section3">
-    <h1>Hello World</h1>
+    
+    <div class="wrap">
+      <h1 class="section3-title">KATALOG</h1>
+      
+      <div class="gallery-wrap">
+        
+        <ul id="filters" class="clearfix">
+          <li><span class="filter active" data-filter="all">All</span></li>
+          <li><span class="filter" data-filter="wedding">Wedding</span></li>
+          <li><span class="filter" data-filter="aqiah">Aqiah</span></li>
+          <li><span class="filter" data-filter="syukuran">Syukuran</span></li>
+          <li><span class="filter" data-filter="seminar">Seminar</span></li>
+          <li><span class="filter" data-filter="graduation">Graduation</span></li>
+          <li><span class="filter" data-filter="christmas">Christmas</span></li>
+          <li><span class="filter" data-filter="birthday">Birthday</span></li>
+          <li><span class="filter" data-filter="khitanan">Khitanan</span></li>
+        </ul>
+
+        <button id="toggleGallery" style="font-family: 'Montserrat'; background-color: #009dff53; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);" class="toggle-btn">Sembunyikan Galeri</button>
+        
+        <div id="gallery">
+        </div><!--/gallery-->
+        
+      </div><!--/gallery-wrap-->
+      
+    </div>
+
+    <style>
+      .section3 {
+        background: #dcdcdc;
+        padding: clamp(1rem, 4vw, 4rem) clamp(0.3rem, 1.5vw, 1rem); 
+        min-height: 100vh;
+        height: auto;
+        width: 100%;
+      }
+
+      .toggle-btn {
+        display: block;
+        margin: 1rem auto;
+        padding: 8px 16px;
+        background: #009dff;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: background 0.3s ease;
+      }
+
+      .toggle-btn:hover {
+        background: #0077cc;
+      }
+
+      .section3-title {
+        font-family: 'Montserrat';
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: clamp(1.5rem, 4vw, 3rem);
+        color: rgb(0, 0, 0);
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        text-align: center;
+        margin-bottom: clamp(0.8rem, 2.5vw, 2rem);
+      }
+
+      .wrap {
+        margin: 0 auto;
+        width: min(95%, 1400px);
+        padding: 0 clamp(8px, 1.5vw, 15px);
+      }
+
+      #filters {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: clamp(4px, 0.8vw, 10px);
+        margin-bottom: clamp(15px, 3vw, 30px);
+        list-style: none;
+        padding: 0;
+      }
+
+      .filter {
+        font-family: 'Montserrat';
+        padding: clamp(5px, 1.2vw, 8px) clamp(10px, 1.5vw, 16px);
+        background: rgba(255,255,255,0.1);
+        border-radius: 4px;
+        color: black;
+        cursor: pointer;
+        transition: background 0.3s ease, color 0.3s ease;
+        font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+        white-space: nowrap;
+        text-align: center;
+      }
+
+      .filter.active,
+      .filter:hover {
+        background: #009dff;
+        color: white;
+      }
+
+      @media screen and (max-width: 768px) {
+        .wrap {
+          width: 100%;
+          padding: 0 10px;
+        }
+
+        #filters {
+          gap: 8px;
+          margin-bottom: 20px;
+        }
+
+        .filter {
+          padding: 6px 12px;
+          font-size: 0.8rem;
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        .filter {
+          padding: 4px 10px;
+          font-size: 0.75rem;
+        }
+      }
+
+      #gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr));
+        gap: clamp(8px, 1.5vw, 20px);
+        width: 100%;
+      }
+
+      .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: clamp(4px, 0.8vw, 10px);
+        transition: all 0.3s ease;
+        aspect-ratio: 1;
+        width: 100%;
+        opacity: 0;
+        transform: scale(0.8);
+        display: none;
+      }
+
+      .gallery-item.show {
+        opacity: 1;
+        transform: scale(1);
+        display: block;
+      }
+
+      .gallery-item:hover {
+        transform: scale(1.02);
+      }
+
+      .inside {
+        position: relative;
+        height: 100%;
+        width: 100%;
+      }
+
+      .details {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        z-index: 2;
+      }
+
+      .text {
+        text-align: center;
+        color: white;
+        padding: clamp(0.4rem, 1.5vw, 1rem);
+        width: 100%;
+      }
+
+      .text h2 {
+        font-size: clamp(0.8rem, 2vw, 1.5rem);
+        margin-bottom: clamp(0.2rem, 0.8vw, 0.5rem);
+      }
+
+      .text p {
+        font-size: clamp(0.6rem, 1.2vw, 1rem);
+      }
+
+      .overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0,157,255,0.8);
+        opacity: 0;
+      }
+
+      .gallery-item:hover .details,
+      .gallery-item:hover .overlay {
+        opacity: 1;
+      }
+      .lihat-btn {
+        display: inline-block;
+        background-color: #009dff;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 0.8rem;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .lihat-btn:hover {
+        background-color: #0077cc;
+        transform: scale(1.05);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+      }
+      .whatsapp-btn {
+        display: inline-block;
+        background-color: #25D366;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 0.8rem; /* Lebih kecil dari card title */
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .whatsapp-btn:hover {
+        background-color: #1EBE5D;
+        transform: scale(1.05);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      @media (max-width: 1200px) {
+        #gallery {
+          grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
+        }
+      }
+
+      @media (max-width: 1024px) {
+        #gallery {
+          grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr));
+        }
+      }
+
+      @media (max-width: 768px) {
+        .section3 {
+          padding: clamp(1rem, 2.5vw, 2rem) clamp(0.2rem, 0.8vw, 0.5rem);
+        }
+
+        #gallery {
+          grid-template-columns: repeat(auto-fill, minmax(min(100%, 180px), 1fr));
+        }
+
+        .filter {
+          padding: clamp(3px, 1vw, 8px) clamp(6px, 1.5vw, 12px); 
+          font-size: clamp(0.6rem, 1.2vw, 0.9rem);
+        }
+        
+      }
+
+      @media (max-width: 480px) {
+        .wrap {
+          width: 98%;
+          padding: 0 5px;
+        }
+
+        #gallery {
+          grid-template-columns: repeat(auto-fill, minmax(min(100%, 140px), 1fr));
+          gap: 8px;
+        }
+
+        .filter {
+          font-size: 0.7rem;
+          padding: 4px 8px;
+        }
+
+        .text h2 {
+          font-size: 0.9rem;
+        }
+
+        .text p {
+          font-size: 0.7rem;
+        }
+      }
+
+      @media (max-width: 320px) {
+        #gallery {
+          grid-template-columns: 1fr;
+        }
+
+        .filter {
+          font-size: 0.65rem;
+          padding: 3px 6px;
+        }
+      }
+    </style>
+
+    <script>
+      fetch('katalog.json')
+        .then(response => response.json())
+        .then(data => {
+          const galleryEl = document.getElementById('gallery');
+          
+          data.forEach(card => {
+            const cardHTML = `
+              <a class="gallery-item ${card.category}" href="#"> 
+                <div class="inside">
+                  <div class="details">
+                    <div class="text">
+                      <h2 style="font-size: 1.2rem; font-family: 'Montserrat';">${card.title}</h2>
+                      <p style="margin-bottom: 0.5rem; font-family: 'Montserrat';">Kategori: ${card.category}</p>
+                      <button class="lihat-btn" onclick="window.open('${card.image}', '_blank')" style="font-family: 'Montserrat'; background-color: #009dff53; color: white; border: none; padding: 8px 16px; border-radius: 20px; cursor: pointer; margin-bottom: 10px; font-size: 0.9rem; width: 100%; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); animation: pulse 1.5s infinite;">
+                        <i class="fas fa-eye"></i> LIHAT TEMA
+                      </button>
+                      <button class="whatsapp-btn" onclick="window.open('https://wa.me/6285172121407?text=Halo, saya tertarik dengan produk ${card.title} kategori ${card.category}.', '_blank')" style="font-family: 'Montserrat'; background-color: #009dff53; color: white; border: none; padding: 8px 16px; border-radius: 20px; cursor: pointer; margin-bottom: 10px; font-size: 0.9rem; width: 100%; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+                         ORDER VIA <i class="fab fa-whatsapp"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="overlay"></div>
+                  <img src="${card.image}" alt="${card.title}" />
+                </div>
+              </a>
+            `;
+            galleryEl.innerHTML += cardHTML;
+          });
+
+          const filters = document.querySelectorAll('.filter');
+          const items = document.querySelectorAll('.gallery-item');
+          const toggleBtn = document.getElementById('toggleGallery');
+
+          // Tampilkan semua item saat halaman dimuat
+          items.forEach(item => {
+            item.classList.add('show');
+          });
+
+          // Toggle gallery visibility
+          toggleBtn.addEventListener('click', () => {
+            if(galleryEl.style.display !== 'none') {
+              galleryEl.style.display = 'none';
+              toggleBtn.textContent = 'Tampilkan Galeri';
+            } else {
+              galleryEl.style.display = 'grid';
+              toggleBtn.textContent = 'Sembunyikan Galeri';
+            }
+          });
+
+          filters.forEach(filter => {
+            filter.addEventListener('click', function() {
+              // Hapus kelas active dari semua filter
+              filters.forEach(f => f.classList.remove('active'));
+              // Tambahkan kelas active ke filter yang diklik
+              this.classList.add('active');
+
+              const filterValue = this.getAttribute('data-filter');
+
+              items.forEach(item => {
+                // Hapus kelas show dari semua item
+                item.classList.remove('show');
+                
+                // Jika filter adalah 'all' atau item memiliki kategori yang sesuai
+                if(filterValue === 'all' || item.classList.contains(filterValue)) {
+                  setTimeout(() => {
+                    item.classList.add('show');
+                  }, 300);
+                }
+              });
+            });
+          });
+        })
+        .catch(error => {
+          console.error('Error loading cards:', error);
+        });
+    </script>
+    
   </section>
 
   <section class="section4">
     <h1>Hello World</h1>
+    
   </section>
   
   <section class="section5">
@@ -309,9 +694,7 @@
     align-items: center;
     scroll-snap-align: start;
   }
-  .section3 {
-    background-color: blue;
-  }
+  
   .section4 {
     background-color: yellow;
   }
@@ -389,6 +772,7 @@
     border: 7px solid #dcdcdc;
     color: white;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    clip-path: circle(50% at 50% 50%);
   }
 
   @media screen and (max-width: 480px) {

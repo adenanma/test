@@ -1,0 +1,43 @@
+[
+  {
+    "title": "Undangan Pernikahan Digital",
+    "image": "images/2.jpg",
+    "category": "web",
+    "whatsapp": "Pesan Lewat WhatsApp"
+  },
+  {
+    "title": "Undangan Pernikahan Cetak", 
+    "image": "images/3.jpg",
+    "category": "print"
+  },
+  {
+    "title": "Logo Perusahaan",
+    "image": "images/4.jpeg", 
+    "category": "logo",
+    "whatsapp": "Pesan Lewat WhatsApp"
+  },
+  {
+    "title": "Strategi Marketing",
+    "image": "images/5.jpg",
+    "category": "strategy",
+    "whatsapp": "Pesan Lewat WhatsApp"
+  },
+  {
+    "title": "Website Company Profile",
+    "image": "images/6.jpg",
+    "category": "web",
+    "whatsapp": "Pesan Lewat WhatsApp"
+  },
+  {
+    "title": "Kartu Nama",
+    "image": "images/7.jpg",
+    "category": "print",
+    "whatsapp": "Pesan Lewat WhatsApp"
+  },
+  {
+    "title": "Logo Brand",
+    "image": "images/8.jpg",
+    "category": "logo",
+    "whatsapp": "Pesan Lewat WhatsApp"
+  }
+]

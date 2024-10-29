@@ -6,7 +6,7 @@
   <title>kataSemata. Invitation Card Digital</title>
   <meta name="description" content="Undangan digital yang elegan dan modern untuk pernikahan, ulang tahun, khitanan, aqiqah, wisuda, syukuran, dan halal bihalal. Desain undangan yang inovatif dan responsif untuk semua perangkat.">
   <meta name="author" content="kataSemata">
-  <link rel="icon" href="images/logo.png" style="width: 20px; height: 20px;" type="image/png">
+  <link rel="icon" href="images/LOGO.jpeg" style="width: 20px; height: 20px;" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.5.2/collection/components/icon/icon.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -159,10 +159,10 @@
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.504);
       margin-bottom: 1rem;
       overflow: hidden;
-      border-right: 0.15em solid white;
+      border-right: 0.15em solid rgb(0, 0, 0);
       white-space: nowrap;
       animation: typing 5.5s cubic-bezier(0.4, 0, 0.2, 1) infinite, 
-                 blink-caret 1s ease-in-out infinite;
+                 blink-caret 0.35s ease-in-out infinite;
       margin: 0 auto;
       margin-bottom: 1rem;
       width: fit-content;
@@ -177,7 +177,7 @@
 
     @keyframes blink-caret {
       0%, 100% { border-color: transparent }
-      50% { border-color: white; opacity: 0.8 }
+      50% { border-color: #000000; opacity: 1 }
     }
 
     .hero-subtitle {
@@ -319,15 +319,32 @@
 
       .section2-title {
         font-family: 'Montserrat';
-        font-weight: 800;
-        text-transform: uppercase;
-        font-size: clamp(1.5rem, 8vw, 2rem);
-        color: rgb(0, 0, 0);
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        text-align: center;
-        margin: -80px 0 1rem 0;
+      font-weight: 900;
+      font-style: italic;
+      font-size: clamp(1.5rem, 8vw, 3rem);
+      color: rgb(0, 0, 0);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.504);
+      margin-bottom: 1rem;
+      overflow: hidden;
+      border-right: 0.15em solid rgb(0, 0, 0);
+      white-space: nowrap;
+      animation: typing 5.5s cubic-bezier(0.4, 0, 0.2, 2.2) infinite, 
+                 blink-caret 0.35s ease-in-out infinite;
+      margin: 0 auto;
+      margin-bottom: 1rem;
+      width: fit-content;
+      transition: all 0.3s ease;
       }
+      @keyframes typing {
+      0% { width: 0 }
+      50% { width: 11ch }
+      100% { width: 0 }
+    }
 
+    @keyframes blink-caret {
+      0%, 100% { border-color: transparent }
+      50% { border-color: #000000; opacity: 1 }
+    }
       .section2-description {
         font-family: 'Montserrat';
         font-weight: 500;
@@ -454,14 +471,32 @@
 
       .section3-title {
         font-family: 'Montserrat';
-        font-weight: 800;
-        text-transform: uppercase;
-        font-size: clamp(1.5rem, 8vw, 2rem);
-        color: rgb(0, 0, 0);
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        text-align: center;
-        margin-bottom: clamp(0.8rem, 2.5vw, 2rem);
+      font-weight: 900;
+      font-style: italic;
+      font-size: 2.2rem;
+      color: rgb(0, 0, 0);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.504);
+      margin-bottom: 1rem;
+      overflow: hidden;
+      border-right: 0.15em solid rgb(0, 0, 0);
+      white-space: nowrap;
+      animation: typing 5.5s cubic-bezier(0.4, 0, 0.2, 2.8) infinite, 
+                 blink-caret 0.35s ease-in-out infinite;
+      margin: 0 auto;
+      margin-bottom: 1rem;
+      width: fit-content;
+      transition: all 0.3s ease;
       }
+      @keyframes typing {
+      0% { width: 0 }
+      50% { width: 11ch }
+      100% { width: 0 }
+    }
+
+    @keyframes blink-caret {
+      0%, 100% { border-color: transparent }
+      50% { border-color: #000000; opacity: 1 }
+    }
 
       .wrap {
         margin: 0 auto;

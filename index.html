@@ -477,39 +477,39 @@
         display: inline-block;
         background-color: #009dff;
         color: white;
-        padding: 5px 10px;
+        padding: 2px 6px;
         border-radius: 50px;
         text-decoration: none;
         font-family: 'Montserrat', sans-serif;
         font-weight: 600;
-        font-size: 0.8rem;
+        font-size: 0.6rem;
         transition: background-color 0.3s ease, transform 0.3s ease;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
       }
 
       .lihat-btn:hover {
         background-color: #0077cc;
         transform: scale(1.05);
-        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
       }
       .whatsapp-btn {
         display: inline-block;
         background-color: #25D366;
         color: white;
-        padding: 5px 10px;
+        padding: 2px 6px;
         border-radius: 50px;
         text-decoration: none;
         font-family: 'Montserrat', sans-serif;
         font-weight: 600;
-        font-size: 0.8rem; /* Lebih kecil dari card title */
+        font-size: 0.6rem;
         transition: background-color 0.3s ease, transform 0.3s ease;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
       }
 
       .whatsapp-btn:hover {
         background-color: #1EBE5D;
         transform: scale(1.05);
-        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
       }
 
       img {
@@ -598,11 +598,11 @@
                     <div class="text">
                       <h2 style="font-size: 1.2rem; font-family: 'Montserrat';">${card.title}</h2>
                       <p style="margin-bottom: 0.5rem; font-family: 'Montserrat';">Kategori: ${card.category}</p>
-                      <button class="lihat-btn" onclick="window.open('${card.image}', '_blank')" style="font-family: 'Montserrat'; background-color: #009dff53; color: white; border: none; padding: 8px 16px; border-radius: 20px; cursor: pointer; margin-bottom: 10px; font-size: 0.9rem; width: 100%; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); animation: pulse 1.5s infinite;">
-                        <i class="fas fa-eye"></i> LIHAT TEMA
+                      <button class="lihat-btn" onclick="window.open('${card.image}', '_blank')">
+                        <i class="fas fa-eye"></i> LIHAT
                       </button>
-                      <button class="whatsapp-btn" onclick="window.open('https://wa.me/6285172121407?text=Halo, saya tertarik dengan produk ${card.title} kategori ${card.category}.', '_blank')" style="font-family: 'Montserrat'; background-color: #009dff53; color: white; border: none; padding: 8px 16px; border-radius: 20px; cursor: pointer; margin-bottom: 10px; font-size: 0.9rem; width: 100%; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
-                         ORDER VIA <i class="fab fa-whatsapp"></i>
+                      <button class="whatsapp-btn" onclick="window.open('https://wa.me/6285172121407?text=Halo, saya tertarik dengan produk ${card.title} kategori ${card.category}.', '_blank')">
+                        ORDER <i class="fab fa-whatsapp"></i>
                       </button>
                     </div>
                   </div>

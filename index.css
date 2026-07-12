@@ -5,13 +5,18 @@
 
 :root {
     /* Color Palette (Elegant Neobrutalism) */
-    --bg-main: #fbf9f4;         /* Soft off-white / warm beige */
-    --bg-card: #ffffff;         /* Pure white for cards */
-    --text-main: #1a1a1a;       /* Deep charcoal instead of pure black */
-    --accent: #2e594a;          /* Deep forest green for elegant accent */
-    --accent-light: #e8f0ec;    /* Soft tint of accent for highlights */
-    --error: #bc4747;           /* Muted terracotta red for error */
-    --error-light: #fbebeb;     /* Soft tint for error state */
+    --bg-main: #fbf9f4;         
+    --bg-card: #ffffff;         
+    --text-main: #1a1a1a;       
+    --accent: #2e594a;          
+    --accent-light: #e8f0ec;    
+    --error: #bc4747;           
+    --error-light: #fbebeb;
+    
+    /* Warna Kategori Neobrutalism */
+    --color-video: #ffd966;
+    --color-shorts: #a2d2ff;
+    --color-live: #ffadad;
     
     /* Neobrutalism Structural Tokens */
     --border-thick: 3px solid var(--text-main);
@@ -22,7 +27,7 @@
     
     /* Typography & Spacing */
     --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-    --radius: 0px;             /* Sudut tajam khas neobrutalism */
+    --radius: 0px;             
     --transition-fast: 0.15s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -43,7 +48,7 @@ body {
 }
 
 /* ==========================================================================
-   LAYOUT CONTAINER
+   LAYOUT CONTAINER & HEADER
    ========================================================================== */
 .app-container {
     max-width: 1200px;
@@ -51,12 +56,9 @@ body {
     display: block;
 }
 
-/* ==========================================================================
-   HEADER STYLE
-   ========================================================================== */
 .gallery-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
     padding: 1.5rem;
     background-color: var(--bg-card);
     border: var(--border-thick);
@@ -71,10 +73,87 @@ body {
 }
 
 /* ==========================================================================
-   GALLERY CONTENT AREA
+   CATEGORY SECTIONS (BARU)
    ========================================================================== */
-.gallery-content {
+.category-section {
+    margin-bottom: 4rem;
+}
+
+.category-badge {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    border: var(--border-thick);
+    box-shadow: var(--shadow-flat);
+    margin-bottom: 1.5rem;
+    margin-left: 0.5rem;
+}
+
+.badge-video { background-color: var(--color-video); }
+.badge-shorts { background-color: var(--color-shorts); }
+.badge-live { background-color: var(--color-live); }
+
+/* ==========================================================================
+   VIDEO GRID CONTAINER
+   ========================================================================== */
+.video-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2.5rem;
+    padding: 0.5rem;
+}
+
+/* Penyesuaian grid khusus untuk Shorts agar lebih rapat */
+.shorts-grid-container {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+
+/* ==========================================================================
+   VIDEO CARDS
+   ========================================================================== */
+.video-card {
+    background-color: var(--bg-card);
+    border: var(--border-thick);
+    box-shadow: var(--shadow-flat);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.video-card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: var(--shadow-hover);
+}
+
+.video-card img {
     width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-bottom: var(--border-thin);
+}
+
+/* Thumbnail khusus Shorts */
+.shorts-grid-container .video-card img {
+    aspect-ratio: 9 / 16;
+}
+
+.video-card h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 1.2rem 1.2rem 0.5rem;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+    flex-grow: 1; /* Mendorong teks tanggal ke bawah */
+}
+
+.video-date {
+    padding: 0 1.2rem 1.2rem;
+    font-weight: 500;
+    font-size: 0.85rem;
+    opacity: 0.85;
 }
 
 /* ==========================================================================
@@ -90,15 +169,12 @@ body {
     margin: 2rem auto;
 }
 
-/* Loading State */
 #loading-state {
     background-color: var(--accent-light);
     font-weight: 700;
     font-size: 1.1rem;
-    letter-spacing: -0.01em;
 }
 
-/* Indikator Loading Neobrutalist tanpa gambar/SVG eksternal */
 #loading-state::after {
     content: "";
     display: block;
@@ -115,25 +191,18 @@ body {
     100% { transform: rotate(360deg); }
 }
 
-/* Error State */
 #error-state {
     background-color: var(--error-light);
-    border-color: var(--text-main);
 }
 
 #error-state p {
-    color: var(--text-main);
     font-weight: 500;
     margin-bottom: 1.5rem;
 }
 
-/* Neobrutalist Button for Retry */
 #retry-btn {
     font-family: var(--font-sans);
     font-weight: 700;
-    font-size: 0.95rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
     padding: 0.75rem 1.5rem;
     background-color: var(--bg-card);
     color: var(--text-main);
@@ -146,7 +215,6 @@ body {
 #retry-btn:hover {
     transform: translate(-2px, -2px);
     box-shadow: 5px 5px 0px 0px var(--text-main);
-    background-color: #fff;
 }
 
 #retry-btn:active {
@@ -154,72 +222,7 @@ body {
     box-shadow: var(--shadow-active);
 }
 
-/* ==========================================================================
-   VIDEO GRID CONTAINER (RESPONSIVE)
-   ========================================================================== */
-.video-grid-container {
-    display: grid;
-    /* CSS Grid untuk membagi kolom secara proporsional dan responsif otomatis */
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 2.5rem;
-    padding: 0.5rem; /* Memberikan ruang ekstra agar shadow tidak terpotong (clipped) */
-}
-
-/* ==========================================================================
-   EXPECTED RENDERED CONTENT (VIDEO CARDS)
-   ========================================================================== */
-.video-card {
-    background-color: var(--bg-card);
-    border: var(--border-thick);
-    box-shadow: var(--shadow-flat);
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-    display: block;
-    overflow: hidden;
-}
-
-/* Interaksi Hover Khas Neobrutalism */
-.video-card:hover {
-    transform: translate(-4px, -4px);
-    box-shadow: var(--shadow-hover);
-}
-
-.video-card img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    display: block;
-    border-bottom: var(--border-thin); /* Garis batas pemisah tegas antara thumbnail dan teks */
-}
-
-.video-card h2 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    padding: 1.2rem;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-}
-
-/* ==========================================================================
-   RESPONSIVE DESIGN BREAKPOINTS
-   ========================================================================== */
 @media (max-width: 768px) {
-    body {
-        padding: 1.5rem 0.75rem;
-    }
-    
-    .gallery-header {
-        margin-bottom: 2.5rem;
-        padding: 1.2rem;
-    }
-    
-    .gallery-header h1 {
-        font-size: 1.8rem;
-    }
-    
-    .video-grid-container {
-        /* Di layar kecil, pastikan tumpukan 1 kolom saja */
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
+    .video-grid-container { grid-template-columns: 1fr; gap: 2rem; }
+    .shorts-grid-container { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
 }

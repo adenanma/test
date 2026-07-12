@@ -1,79 +1,39 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-        name="description"
-        content="Galeri portofolio video YouTube yang menampilkan koleksi karya dalam tampilan responsif."
-    />
-
-    <title>Galeri Portofolio YouTube</title>
-
-    <!-- External CSS -->
-    <link rel="stylesheet" href="index.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Galeri portofolio video YouTube interaktif.">
+    <title>Galeri Portofolio Video</title>
+    
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
 
-    <!-- Main Application -->
-    <main class="app">
-
-        <!-- Header -->
-        <header class="app-header">
-            <div class="container">
-                <h1 class="app-title">Galeri Portofolio YouTube</h1>
-            </div>
+    <main class="app-container">
+        
+        <header class="gallery-header">
+            <h1 id="gallery-title">Portofolio Video</h1>
         </header>
 
-        <!-- Main Content -->
-        <section class="gallery-section" aria-labelledby="gallery-title">
-
-            <div class="container">
-
-                <h2 id="gallery-title" class="visually-hidden">
-                    Daftar Video
-                </h2>
-
-                <!-- Loading State -->
-                <div
-                    id="loading-state"
-                    class="state state-loading"
-                    role="status"
-                    aria-live="polite"
-                >
-                    <p>Sedang memuat video...</p>
+        <section class="gallery-content" aria-labelledby="gallery-title">
+            
+            <div id="loading-state" class="ui-state" aria-live="polite">
+                <p>Sedang mengambil data video...</p>
                 </div>
 
-                <!-- Error State -->
-                <div
-                    id="error-state"
-                    class="state state-error"
-                    role="alert"
-                    hidden
-                >
-                    <p>Maaf, data video gagal dimuat. Silakan coba lagi.</p>
-                </div>
-
-                <!-- Video Grid -->
-                <section
-                    id="video-grid"
-                    class="video-grid"
-                    aria-label="Galeri Video"
-                >
-                    <!--
-                        Kartu video akan dirender secara dinamis
-                        menggunakan JavaScript.
-                    -->
-                </section>
-
+            <div id="error-state" class="ui-state" hidden aria-live="assertive">
+                <p>Gagal memuat galeri. Silakan periksa koneksi Anda dan coba lagi.</p>
+                <button type="button" id="retry-btn">Coba Lagi</button>
             </div>
+
+            <div id="video-grid" class="video-grid-container">
+                </div>
 
         </section>
 
     </main>
 
-    <!-- External JavaScript -->
     <script src="index.js" defer></script>
-
 </body>
 </html>

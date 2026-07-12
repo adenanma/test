@@ -1,251 +1,145 @@
 /**
- * ============================================================
- * YouTube Portfolio Gallery
- * Vanilla JavaScript
- * ============================================================
+ * ==========================================================================
+ * KONFIGURASI APLIKASI
+ * ==========================================================================
  */
-
-/* ============================================================
-   CONFIGURATION
-   ============================================================ */
+const CONFIG = {
+    // [!] PERHATIAN: Masukkan API Key YouTube Anda di variabel API_KEY di bawah ini.
+    // Console log pengingat:
+    // console.log("Pastikan YOUTUBE API KEY 'AIzaSyApCVwvjgWTZgyRPUaz_ymIpujS6afCjjw' sudah terpasang di objek CONFIG.");
+    API_KEY: 'AIzaSyApCVwvjgWTZgyRPUaz_ymIpujS6afCjjw', 
+    CHANNEL_ID: 'UCb6kJDbtnvyl8YtQmRnecfg',
+    MAX_RESULTS: 12, // Jumlah maksimal video yang dirender
+    BASE_URL: 'https://www.googleapis.com/youtube/v3/search'
+};
 
 /**
- * ============================================================
- * >>>>>>>>>>>>>>>>>>>>>>>>> PERHATIAN <<<<<<<<<<<<<<<<<<<<<<<<<<
- *
- * GANTI STRING DI BAWAH INI DENGAN YOUTUBE DATA API v3 KEY
- * MILIK ANDA.
- *
- * Contoh:
- * const YOUTUBE_API_KEY = "AIzaSyXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
- *
- * JANGAN mengubah nama variabelnya.
- * ============================================================
+ * ==========================================================================
+ * REFERENSI ELEMEN DOM
+ * ==========================================================================
  */
-const YOUTUBE_API_KEY = "AIzaSyApCVwvjgWTZgyRPUaz_ymIpujS6afCjjw";
+const DOM = {
+    grid: document.getElementById('video-grid'),
+    loadingState: document.getElementById('loading-state'),
+    errorState: document.getElementById('error-state'),
+    retryBtn: document.getElementById('retry-btn')
+};
 
-/* Channel */
-const CHANNEL_ID = "UCb6kJDbtnvyl8YtQmRnecfg";
-
-/* Jumlah video yang ingin ditampilkan */
-const MAX_RESULTS = 24;
-
-/* API Endpoint */
-const API_ENDPOINT = "https://www.googleapis.com/youtube/v3/search";
-
-/* ============================================================
-   DOM
-============================================================ */
-
-const loadingState = document.getElementById("loading-state");
-const errorState = document.getElementById("error-state");
-const videoGrid = document.getElementById("video-grid");
-
-/* ============================================================
-   INITIALIZATION
-============================================================ */
-
-document.addEventListener("DOMContentLoaded", init);
-
-async function init() {
-    console.log(
-        "%cYouTube Portfolio Gallery Initialized",
-        "color:green;font-weight:bold;"
-    );
-
-    if (
-        !YOUTUBE_API_KEY ||
-        YOUTUBE_API_KEY === "AIzaSyApCVwvjgWTZgyRPUaz_ymIpujS6afCjjw"
-    ) {
-        console.error(
-            "YouTube API Key belum diisi.\n\nSilakan isi variabel:\nconst YOUTUBE_API_KEY = 'API_KEY_ANDA';"
-        );
-
-        showError(
-            "YouTube API Key belum dikonfigurasi."
-        );
-
-        return;
+/**
+ * ==========================================================================
+ * STATE MANAGEMENT (MANIPULASI UI)
+ * ==========================================================================
+ */
+const uiState = {
+    showLoading: () => {
+        DOM.loadingState.removeAttribute('hidden');
+        DOM.errorState.setAttribute('hidden', '');
+        DOM.grid.innerHTML = '';
+    },
+    showError: () => {
+        DOM.loadingState.setAttribute('hidden', '');
+        DOM.errorState.removeAttribute('hidden');
+    },
+    showSuccess: () => {
+        DOM.loadingState.setAttribute('hidden', '');
+        DOM.errorState.setAttribute('hidden', '');
     }
+};
 
-    showLoading();
+/**
+ * ==========================================================================
+ * UTILITAS (FORMATTER)
+ * ==========================================================================
+ */
+function formatDate(isoDateString) {
+    const date = new Date(isoDateString);
+    const options = { day: '2-digit', month: 'short', year: 'numeric' };
+    return date.toLocaleDateString('id-ID', options);
+}
+
+/**
+ * ==========================================================================
+ * API FETCH LOGIC
+ * ==========================================================================
+ */
+async function fetchYouTubeVideos() {
+    // Parameter: channelId, snippet (data umum), urutkan berdasarkan tanggal (terbaru)
+    const url = `${CONFIG.BASE_URL}?key=${CONFIG.API_KEY}&channelId=${CONFIG.CHANNEL_ID}&part=snippet,id&order=date&maxResults=${CONFIG.MAX_RESULTS}`;
 
     try {
-        const videos = await fetchVideos();
+        const response = await fetch(url);
+        
+        if (!response.ok) {
+            throw new Error(`HTTP Error: ${response.status} - ${response.statusText}`);
+        }
 
-        hideLoading();
+        const data = await response.json();
+        
+        // Filter hanya untuk tipe 'video' (mengabaikan channel/playlist jika terbawa)
+        const videos = data.items.filter(item => item.id.kind === 'youtube#video');
+        return videos;
 
-        renderVideos(videos);
     } catch (error) {
-        console.error(error);
-
-        hideLoading();
-
-        showError(
-            "Gagal mengambil data video dari YouTube."
-        );
+        console.error("Gagal mengambil data dari YouTube API:", error);
+        throw error; // Lempar error agar bisa ditangkap oleh inisiator
     }
 }
 
-/* ============================================================
-   FETCH API
-============================================================ */
-
-async function fetchVideos() {
-    const params = new URLSearchParams({
-        key: YOUTUBE_API_KEY,
-        channelId: CHANNEL_ID,
-        part: "snippet",
-        order: "date",
-        type: "video",
-        maxResults: MAX_RESULTS
-    });
-
-    const response = await fetch(
-        `${API_ENDPOINT}?${params.toString()}`
-    );
-
-    if (!response.ok) {
-        throw new Error(
-            `HTTP Error ${response.status}`
-        );
-    }
-
-    const data = await response.json();
-
-    return data.items;
-}
-
-/* ============================================================
-   RENDER
-============================================================ */
-
-function renderVideos(videos) {
-    videoGrid.innerHTML = "";
-
-    if (!videos.length) {
-        showError("Tidak ada video ditemukan.");
+/**
+ * ==========================================================================
+ * DOM RENDERING LOGIC
+ * ==========================================================================
+ */
+function renderVideoCards(videos) {
+    if (!videos || videos.length === 0) {
+        DOM.grid.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; font-weight: 500;">Tidak ada video yang ditemukan.</p>';
+        uiState.showSuccess();
         return;
     }
 
-    const fragment = document.createDocumentFragment();
+    // Map data array menjadi string HTML
+    const htmlString = videos.map(video => {
+        const videoId = video.id.videoId;
+        const { title, publishedAt, thumbnails } = video.snippet;
+        const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+        // Menggunakan resolusi medium/high untuk thumbnail
+        const thumbnailUrl = thumbnails.high ? thumbnails.high.url : thumbnails.medium.url;
 
-    videos.forEach((video) => {
-        fragment.appendChild(createVideoCard(video));
-    });
+        return `
+            <article class="video-card">
+                <a href="${videoUrl}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; display: block; height: 100%;">
+                    <img src="${thumbnailUrl}" alt="Thumbnail dari ${title}" loading="lazy">
+                    <h2>${title}</h2>
+                    <p style="padding: 0 1.2rem 1.2rem; font-weight: 500; font-size: 0.9rem; opacity: 0.85;">
+                        Diunggah: ${formatDate(publishedAt)}
+                    </p>
+                </a>
+            </article>
+        `;
+    }).join('');
 
-    videoGrid.appendChild(fragment);
+    DOM.grid.innerHTML = htmlString;
+    uiState.showSuccess();
 }
 
-/* ============================================================
-   CARD
-============================================================ */
-
-function createVideoCard(video) {
-    const {
-        title,
-        thumbnails,
-        publishedAt
-    } = video.snippet;
-
-    const videoId = video.id.videoId;
-
-    const article = document.createElement("article");
-    article.className = "video-card";
-
-    article.innerHTML = `
-        <a
-            href="https://www.youtube.com/watch?v=${videoId}"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="${escapeHtml(title)}"
-        >
-
-            <div class="video-thumbnail">
-                <img
-                    src="${getThumbnail(thumbnails)}"
-                    alt="${escapeHtml(title)}"
-                    loading="lazy"
-                >
-            </div>
-
-            <div class="video-content">
-
-                <h3 class="video-title">
-                    ${escapeHtml(title)}
-                </h3>
-
-                <p class="video-description">
-                    ${formatDate(publishedAt)}
-                </p>
-
-            </div>
-
-        </a>
-    `;
-
-    return article;
+/**
+ * ==========================================================================
+ * INITIALIZATION & EVENT LISTENERS
+ * ==========================================================================
+ */
+async function initGallery() {
+    uiState.showLoading();
+    
+    try {
+        const videos = await fetchYouTubeVideos();
+        renderVideoCards(videos);
+    } catch (error) {
+        uiState.showError();
+    }
 }
 
-/* ============================================================
-   HELPERS
-============================================================ */
+// Jalankan saat dokumen selesai diload
+document.addEventListener('DOMContentLoaded', initGallery);
 
-function getThumbnail(thumbnails) {
-    return (
-        thumbnails.high?.url ||
-        thumbnails.medium?.url ||
-        thumbnails.default?.url
-    );
-}
-
-function formatDate(dateString) {
-    const date = new Date(dateString);
-
-    return new Intl.DateTimeFormat("id-ID", {
-        day: "2-digit",
-        month: "short",
-        year: "numeric"
-    }).format(date);
-}
-
-function escapeHtml(text) {
-    const div = document.createElement("div");
-    div.textContent = text;
-    return div.innerHTML;
-}
-
-/* ============================================================
-   STATE
-============================================================ */
-
-function showLoading() {
-    loadingState.hidden = false;
-    errorState.hidden = true;
-}
-
-function hideLoading() {
-    loadingState.hidden = true;
-}
-
-function showError(message) {
-    hideLoading();
-
-    errorState.hidden = false;
-    errorState.innerHTML = `<p>${message}</p>`;
-}
-
-/* ============================================================
-   OPTIONAL
-============================================================ */
-
-window.addEventListener("error", (event) => {
-    console.error("Global Error:", event.error);
-});
-
-window.addEventListener("unhandledrejection", (event) => {
-    console.error(
-        "Unhandled Promise Rejection:",
-        event.reason
-    );
-});
+// Event listener untuk tombol coba lagi saat error
+DOM.retryBtn.addEventListener('click', initGallery);

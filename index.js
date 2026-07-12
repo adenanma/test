@@ -70,7 +70,7 @@ async function fetchYouTubeVideos() {
 }
 
 /**
- * DOM RENDERING LOGIC (Diupdate Struktur HTML Card-nya)
+ * DOM RENDERING LOGIC
  */
 function generateCardHTML(video) {
     const videoId = video.id.videoId;

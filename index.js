@@ -55,7 +55,6 @@ function formatDate(isoDateString) {
  * API FETCH LOGIC
  */
 async function fetchYouTubeVideos() {
-    // Meminta part snippet untuk mendeteksi tipe video
     const url = `${CONFIG.BASE_URL}?key=${CONFIG.API_KEY}&channelId=${CONFIG.CHANNEL_ID}&part=snippet,id&order=date&maxResults=${CONFIG.MAX_RESULTS}`;
 
     try {
@@ -71,7 +70,7 @@ async function fetchYouTubeVideos() {
 }
 
 /**
- * DOM RENDERING LOGIC (Diupdate untuk Neo-Brutalism)
+ * DOM RENDERING LOGIC (Diupdate Struktur HTML Card-nya)
  */
 function generateCardHTML(video) {
     const videoId = video.id.videoId;
@@ -81,10 +80,10 @@ function generateCardHTML(video) {
 
     return `
         <article class="video-card">
-            <a href="${videoUrl}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%;">
+            <a href="${videoUrl}" target="_blank" rel="noopener noreferrer" class="video-link">
                 <img src="${thumbnailUrl}" alt="${title}" loading="lazy">
                 <div class="card-content">
-                    <h2>${title}</h2>
+                    <h2 title="${title}">${title}</h2>
                     <span class="video-meta-tag">DROP: ${formatDate(publishedAt)}</span>
                 </div>
             </a>
@@ -95,8 +94,8 @@ function generateCardHTML(video) {
 function renderCategory(videos, gridElement) {
     if (videos.length === 0) {
         gridElement.innerHTML = `
-            <div style="grid-column: 1/-1; background: #fff; padding: 2rem; border: var(--border-thick); box-shadow: var(--shadow-flat);">
-                <p style="font-weight: 700; font-size: 1.2rem; text-align: center;">NO DATA YET IN THIS SECTOR.</p>
+            <div style="grid-column: 1/-1; background: #fff; padding: 2rem; border: var(--border-thick); box-shadow: var(--shadow-flat); text-align: center;">
+                <p style="font-weight: 700; font-family: var(--font-heading); font-size: 1.2rem;">NO DATA YET IN THIS SECTOR.</p>
             </div>
         `;
         return;
@@ -113,7 +112,6 @@ async function initGallery() {
     try {
         const videos = await fetchYouTubeVideos();
         
-        // Memisahkan berdasarkan kriteria meta API
         const liveVideos = [];
         const shorts = [];
         const regularVideos = [];
@@ -123,7 +121,6 @@ async function initGallery() {
             const title = video.snippet.title.toLowerCase();
             const desc = video.snippet.description.toLowerCase();
             
-            // Logika deteksi Shorts (API Search tidak memberikan durasi, hashtag adalah metode paling akurat tanpa fetch ganda)
             const isShorts = title.includes('#shorts') || desc.includes('#shorts');
 
             if (isLive) {
@@ -135,7 +132,6 @@ async function initGallery() {
             }
         });
 
-        // Merender ke masing-masing grid
         renderCategory(regularVideos, DOM.videoGrid);
         renderCategory(shorts, DOM.shortsGrid);
         renderCategory(liveVideos, DOM.liveGrid);

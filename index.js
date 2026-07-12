@@ -71,7 +71,7 @@ async function fetchYouTubeVideos() {
 }
 
 /**
- * DOM RENDERING LOGIC
+ * DOM RENDERING LOGIC (Diupdate untuk Neo-Brutalism)
  */
 function generateCardHTML(video) {
     const videoId = video.id.videoId;
@@ -83,8 +83,10 @@ function generateCardHTML(video) {
         <article class="video-card">
             <a href="${videoUrl}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%;">
                 <img src="${thumbnailUrl}" alt="${title}" loading="lazy">
-                <h2>${title}</h2>
-                <p class="video-date">Diunggah: ${formatDate(publishedAt)}</p>
+                <div class="card-content">
+                    <h2>${title}</h2>
+                    <span class="video-meta-tag">DROP: ${formatDate(publishedAt)}</span>
+                </div>
             </a>
         </article>
     `;
@@ -92,7 +94,11 @@ function generateCardHTML(video) {
 
 function renderCategory(videos, gridElement) {
     if (videos.length === 0) {
-        gridElement.innerHTML = '<p style="font-weight: 500; padding: 1rem;">Belum ada video di kategori ini.</p>';
+        gridElement.innerHTML = `
+            <div style="grid-column: 1/-1; background: #fff; padding: 2rem; border: var(--border-thick); box-shadow: var(--shadow-flat);">
+                <p style="font-weight: 700; font-size: 1.2rem; text-align: center;">NO DATA YET IN THIS SECTOR.</p>
+            </div>
+        `;
         return;
     }
     gridElement.innerHTML = videos.map(generateCardHTML).join('');

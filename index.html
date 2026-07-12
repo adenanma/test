@@ -3,45 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Galeri portofolio video YouTube interaktif.">
-    <title>Galeri Portofolio Video</title>
+    <meta name="description" content="Galeri portofolio video YouTube interaktif - JULYIDN">
+    <title>JULYIDN | Video Archive</title>
     
+    <!-- Google Fonts for Neo-Brutalism Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
 
+    <!-- Playful Graphic Elements -->
+    <div class="deco deco-star">✦</div>
+    <div class="deco deco-smiley">☻</div>
+    <div class="deco deco-arrow">➔</div>
+    <div class="deco deco-badge">PRO</div>
+
     <main class="app-container">
         
         <header class="gallery-header">
-            <h1 id="gallery-title">Portofolio Video</h1>
+            <h1 id="gallery-title" class="brand-title">JULYIDN</h1>
+            <div class="brand-subtitle-container">
+                <span class="brand-subtitle">CONTENT ARCHIVE // GAMING & BEYOND</span>
+            </div>
         </header>
 
         <section class="gallery-content" aria-labelledby="gallery-title">
             
             <div id="loading-state" class="ui-state" aria-live="polite">
-                <p>Sedang mengambil data video...</p>
+                <div class="spinner"></div>
+                <p>SYNCING DATA...</p>
             </div>
 
             <div id="error-state" class="ui-state" hidden aria-live="assertive">
+                <h2>GLITCH IN THE MATRIX!</h2>
                 <p>Gagal memuat galeri. Silakan periksa koneksi Anda dan coba lagi.</p>
-                <button type="button" id="retry-btn">Coba Lagi</button>
+                <button type="button" id="retry-btn">REBOOT SYSTEM</button>
             </div>
 
             <!-- Kategori Pembagian Video -->
             <div id="gallery-sections" hidden>
                 <div class="category-section">
-                    <h2 class="category-badge badge-video">▶️ Regular Videos</h2>
+                    <div class="category-header-wrap">
+                        <h2 class="category-badge badge-video">▶ REGULAR DROPS</h2>
+                    </div>
                     <div id="video-grid" class="video-grid-container"></div>
                 </div>
 
                 <div class="category-section">
-                    <h2 class="category-badge badge-shorts">📱 YouTube Shorts</h2>
+                    <div class="category-header-wrap align-right">
+                        <h2 class="category-badge badge-shorts">⚡ YT SHORTS</h2>
+                    </div>
                     <!-- Menggunakan grid khusus untuk shorts agar rasionya pas -->
                     <div id="shorts-grid" class="video-grid-container shorts-grid-container"></div>
                 </div>
 
                 <div class="category-section">
-                    <h2 class="category-badge badge-live">🔴 Live Streams</h2>
+                    <div class="category-header-wrap">
+                        <h2 class="category-badge badge-live">🔴 LIVE VODS</h2>
+                    </div>
                     <div id="live-grid" class="video-grid-container"></div>
                 </div>
             </div>

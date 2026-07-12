@@ -22,7 +22,7 @@
  * JANGAN mengubah nama variabelnya.
  * ============================================================
  */
-const YOUTUBE_API_KEY = "PASTE_YOUR_YOUTUBE_API_KEY_HERE";
+const YOUTUBE_API_KEY = "AIzaSyApCVwvjgWTZgyRPUaz_ymIpujS6afCjjw";
 
 /* Channel */
 const CHANNEL_ID = "UCb6kJDbtnvyl8YtQmRnecfg";
@@ -55,7 +55,7 @@ async function init() {
 
     if (
         !YOUTUBE_API_KEY ||
-        YOUTUBE_API_KEY === "PASTE_YOUR_YOUTUBE_API_KEY_HERE"
+        YOUTUBE_API_KEY === "AIzaSyApCVwvjgWTZgyRPUaz_ymIpujS6afCjjw"
     ) {
         console.error(
             "YouTube API Key belum diisi.\n\nSilakan isi variabel:\nconst YOUTUBE_API_KEY = 'API_KEY_ANDA';"
